@@ -14,12 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')->name('raiz');
 });
+
+Route::resource('/vale', 'ValeController');
+
+/* Route::get('/vales',function(){
+    return view('test');
+}); */
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-//Route::delete('/home/{id}', 'HomeController@destroy')->name('home.destroy');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::delete('/home/{id}', 'HomeController@destroy')->name('home.destroy');
 
 Route::resource('/home', 'HomeController')->only(['index', 'destroy']);

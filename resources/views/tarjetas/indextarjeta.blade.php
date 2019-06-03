@@ -4,7 +4,7 @@
         <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Tarjeta</th>
+                    <th scope="col">id</th>
                     <th scope="col">Tipo Monedero</th>
                     <th scope="col">Saldo</th>
                     <th scope="col">Benefactor</th>
@@ -12,15 +12,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($vales as $vale)
+                  @foreach ($tarjetas as $tarjeta)
                       <tr>
-                          <td> {{$vale->litros}} </td>
-                          <td> {{$vale->id_chofer}} </td>
-                          <td> {{$vale->id_automovil}} </td>
-                          <td> {{$vale->id_admin}} </td>
-                          <td> {{$vale->estado}} </td>
+                          <td> {{$tarjeta->tipo_monedero}} </td>
+                          <td> {{$tarjeta->saldo}} </td>
+                          <td> {{$tarjeta->benefactor}} </td>
                           <td>
-                              <form action="{{route('vale.destroy', $vale->id)}}" method="post">
+                              <form action="{{route('tarjeta.destroy', $tarjeta->id)}}" method="post">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
                                 <button class="btn btn-link">Eliminar</button>
@@ -29,7 +27,7 @@
                   @endforeach
                 </tbody>
               </table>
-              <a href=" {{route('vale.create')}} " class="btn btn-primary">Crear</a>
-              {{$vales->links()}}
+              <a href=" {{route('tarjeta.create')}} " class="btn btn-primary">Crear</a>
+              {{$tarjetas->links()}}
 </div>
 @endsection

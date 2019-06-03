@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::resource('/vale', 'ValeController');
+Route::resource('/tarjeta','TarjetaController');
 
 /* Route::get('/vales',function(){
     return view('test');

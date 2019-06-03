@@ -9,7 +9,6 @@ class tarjeta extends Model
     //
     protected $fillable=[
         'id',
-        'tarjeta',
         'tipo_monedero',
         'saldo',
         'benefactor',
@@ -21,5 +20,5 @@ class tarjeta extends Model
         'id'
     ];
 
-    public $timestap=true;
+    public $timestamp= true;
 }

@@ -15,8 +15,6 @@ class TarjetaController extends Controller
     public function index()
     {
         //
-        $tarjetas=tarjeta::paginate(5);
-        return view('tarjetas/tarjetaindex', compact('tarjetas'));
     }
 
     /**
@@ -27,7 +25,6 @@ class TarjetaController extends Controller
     public function create()
     {
         //
-        return view('tarjetas/nuevatarjeta');
     }
 
     /**
@@ -39,8 +36,6 @@ class TarjetaController extends Controller
     public function store(Request $request)
     {
         //
-        tarjeta::create($request->all());
-        return redirect('/tarjeta');
     }
 
     /**

@@ -4,10 +4,11 @@
         <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Tarjeta</th>
-                    <th scope="col">Tipo Monedero</th>
-                    <th scope="col">Saldo</th>
-                    <th scope="col">Benefactor</th>
+                    <th scope="col">litros</th>
+                    <th scope="col">Id_chofer</th>
+                    <th scope="col">id_automovil</th>
+                    <th scope="col">id_admin</th>
+                    <th scope="col">estado</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>

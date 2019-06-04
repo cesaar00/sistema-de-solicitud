@@ -13,7 +13,7 @@ class TarjetaValidation extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -33,9 +33,9 @@ class TarjetaValidation extends FormRequest
     public function messages()
     {
         return [
-            'tipo_monedero'=> 'Introduzca Tipo de Monedero',
-            'saldo'=> 'Introduzca El saldo',
-            'benefactor'=> 'Introduzca Nombre del Benefactor'
+            'tipo_monedero.required'=> 'Introduzca Tipo de Monedero',
+            'saldo.required'=> 'Introduzca El saldo',
+            'benefactor.required'=> 'Introduzca Nombre del Benefactor'
 
         ];
     }

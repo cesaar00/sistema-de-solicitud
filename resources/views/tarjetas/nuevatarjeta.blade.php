@@ -12,6 +12,7 @@
     @endif
     <form method ="POST" action=" {{route('tarjeta.store')}} ">
         @csrf
+
         <div class="form-group">
           <label for="tipo_monedero">Tipo de monedero</label>
           <input type="String" class="form-control" name="tipo_monedero" value=" {{old('tipo_monedero')}}"  placeholder="Ingrese el tipo de monedero">

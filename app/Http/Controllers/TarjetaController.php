@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\tarjeta;
 use Illuminate\Http\Request;
+use App\Http\Requests\TarjetaValidation;
 
 class TarjetaController extends Controller
 {
@@ -15,6 +16,8 @@ class TarjetaController extends Controller
     public function index()
     {
         //
+        $tarjetas=tarjeta::paginate(5);
+        return view('tarjetas/index', compact('tarjetas'));
     }
 
     /**
@@ -25,6 +28,7 @@ class TarjetaController extends Controller
     public function create()
     {
         //
+        return view('tarjetas/nuevatarjeta');
     }
 
     /**
@@ -33,9 +37,11 @@ class TarjetaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TarjetaValidation $request)
     {
         //
+        tarjeta::create($request->all());
+        return redirect('/tarjeta');
     }
 
     /**
@@ -81,5 +87,7 @@ class TarjetaController extends Controller
     public function destroy(tarjeta $tarjeta)
     {
         //
+        $tarjeta->delete();
+        return redirect()->route('tarjeta.index')->with('info', 'registro eliminado');
     }
 }

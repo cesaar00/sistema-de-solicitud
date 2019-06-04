@@ -4,7 +4,6 @@
         <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">id</th>
                     <th scope="col">Tipo Monedero</th>
                     <th scope="col">Saldo</th>
                     <th scope="col">Benefactor</th>

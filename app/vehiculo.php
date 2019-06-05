@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class tarjeta extends Model
+class vehiculo extends Model
 {
-    //
     protected $fillable=[
         'id',
-        'numero_tarjeta',
-        'tipo_monedero',
-        'saldo',
-        'benefactor',
+        'nombre_automovil',
+        'capacidad_tanque_gasolina',
+        'tipo_gasolina',
+        'modelo_automovil',
+        'descripcion_automovil',
 
 
     ];

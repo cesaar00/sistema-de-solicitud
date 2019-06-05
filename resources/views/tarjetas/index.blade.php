@@ -4,6 +4,7 @@
         <table class="table">
                 <thead>
                   <tr>
+                    <th scope="col">Numero de Tarjeta</th>
                     <th scope="col">Tipo Monedero</th>
                     <th scope="col">Saldo</th>
                     <th scope="col">Benefactor</th>
@@ -13,6 +14,7 @@
                 <tbody>
                   @foreach ($tarjetas as $tarjeta)
                       <tr>
+                          <td> {{$tarjeta->numero_tarjeta}} </td>
                           <td> {{$tarjeta->tipo_monedero}} </td>
                           <td> {{$tarjeta->saldo}} </td>
                           <td> {{$tarjeta->benefactor}} </td>

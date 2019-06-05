@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTarjetasTable extends Migration
+class CreateVehiculosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateTarjetasTable extends Migration
      */
     public function up()
     {
-        Schema::create('tarjetas', function (Blueprint $table) {
+        Schema::create('vehiculos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('numero_tarjeta');
-            $table->string('tipo_monedero',191);
-            $table->bigInteger('saldo');
-            $table->string('benefactor',191);
+            $table->string('nombre_automovil');
+            $table->integer('capacidad_tanque_gasolina');
+            $table->string('tipo_gasolina');
+            $table->string('modelo_automovil');
+            $table->string('descripcion_automovil');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateTarjetasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tarjetas');
+        Schema::dropIfExists('vehiculos');
     }
 }

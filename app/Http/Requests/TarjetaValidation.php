@@ -25,14 +25,16 @@ class TarjetaValidation extends FormRequest
     {
         return [
             //
+            'numero_tarjeta'=> 'required|max:255|unique:tarjetas,saldo,'.$this->route('id'),
             'tipo_monedero'=> 'required|max:255',
-            'saldo'=>'required|max:255|unique:tarjetas,saldo,'.$this->route('id'),
+            'saldo'=>'required|max:255',
             'benefactor'=> 'required|max:255'
         ];
     }
     public function messages()
     {
         return [
+            'numero_tarjeta.required'=> 'Introduzca el Numero de la Tarjeta',
             'tipo_monedero.required'=> 'Introduzca Tipo de Monedero',
             'saldo.required'=> 'Introduzca El saldo',
             'benefactor.required'=> 'Introduzca Nombre del Benefactor'

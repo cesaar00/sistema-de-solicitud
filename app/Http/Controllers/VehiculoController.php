@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\tarjeta;
+use App\vehiculo;
 use Illuminate\Http\Request;
-use App\Http\Requests\TarjetaValidation;
 
-class TarjetaController extends Controller
+class VehiculoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,6 @@ class TarjetaController extends Controller
     public function index()
     {
         //
-        $tarjetas=tarjeta::paginate(5);
-        return view('tarjetas/index', compact('tarjetas'));
     }
 
     /**
@@ -28,7 +25,6 @@ class TarjetaController extends Controller
     public function create()
     {
         //
-        return view('tarjetas/nuevatarjeta');
     }
 
     /**
@@ -37,20 +33,18 @@ class TarjetaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TarjetaValidation $request)
+    public function store(Request $request)
     {
         //
-        tarjeta::create($request->all());
-        return redirect('/tarjeta');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\tarjeta  $tarjeta
+     * @param  \App\vehiculo  $vehiculo
      * @return \Illuminate\Http\Response
      */
-    public function show(tarjeta $tarjeta)
+    public function show(vehiculo $vehiculo)
     {
         //
     }
@@ -58,10 +52,10 @@ class TarjetaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\tarjeta  $tarjeta
+     * @param  \App\vehiculo  $vehiculo
      * @return \Illuminate\Http\Response
      */
-    public function edit(tarjeta $tarjeta)
+    public function edit(vehiculo $vehiculo)
     {
         //
     }
@@ -70,10 +64,10 @@ class TarjetaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\tarjeta  $tarjeta
+     * @param  \App\vehiculo  $vehiculo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tarjeta $tarjeta)
+    public function update(Request $request, vehiculo $vehiculo)
     {
         //
     }
@@ -81,13 +75,11 @@ class TarjetaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\tarjeta  $tarjeta
+     * @param  \App\vehiculo  $vehiculo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tarjeta $tarjetum)
+    public function destroy(vehiculo $vehiculo)
     {
         //
-        $tarjetum->delete();
-        return redirect()->route('tarjeta.index')->with('info', 'registro eliminado');
     }
 }

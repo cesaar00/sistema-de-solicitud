@@ -8,11 +8,11 @@ class vehiculo extends Model
 {
     protected $fillable=[
         'id',
-        'nombre_automovil',
+        'nombre_vehiculo',
         'capacidad_tanque_gasolina',
         'tipo_gasolina',
-        'modelo_automovil',
-        'descripcion_automovil',
+        'modelo_vehiculo',
+        'descripcion_vehiculo',
 
 
     ];

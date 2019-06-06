@@ -15,11 +15,13 @@
                 <tbody>
                   @foreach ($vehiculos as $vehiculo)
                       <tr>
-                          <td> {{$vehiculo->nombre_automovil}} </td>
+                          <td> {{$vehiculo->nombre_vehiculo}} </td>
                           <td> {{$vehiculo->capacidad_tanque_gasolina}} </td>
                           <td> {{$vehiculo->tipo_gasolina}} </td>
-                          <td> {{$vehiculo->modelo_automovil}} </td>
-                          <td> {{$vehiculo->descripcion_automovil}} </td>
+                          <td> {{$vehiculo->modelo_vehiculo}} </td>
+                          <td> {{$vehiculo->descripcion_vehiculo}} </td>
+                          <td>
+                               <a href="{{route('vehiculo.edit', $vehiculo->id)}}">Editar</a>
                           <td>
                               <form action="{{route('vehiculo.destroy', $vehiculo->id)}}" method="post">
                                 {{ csrf_field() }}

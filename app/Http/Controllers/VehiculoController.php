@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\vehiculo;
 use Illuminate\Http\Request;
+use App\Http\Requests\VehiculoValidation;
 
 class VehiculoController extends Controller
 {
@@ -14,7 +15,9 @@ class VehiculoController extends Controller
      */
     public function index()
     {
-        //
+        $vehiculos=vehiculo::paginate(5);
+        return view('vehiculos/indexvehiculo', compact('vehiculos'));
+
     }
 
     /**
@@ -24,7 +27,7 @@ class VehiculoController extends Controller
      */
     public function create()
     {
-        //
+        return view('vehiculos/nuevovehiculo');
     }
 
     /**
@@ -33,9 +36,10 @@ class VehiculoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VehiculoValidation $request)
     {
-        //
+        vehiculo::create($request->all());
+        return redirect('/vehiculo');
     }
 
     /**
@@ -57,7 +61,9 @@ class VehiculoController extends Controller
      */
     public function edit(vehiculo $vehiculo)
     {
-        //
+        //dd($vehiculo->all());
+        return view('vehiculos/editvehiculo',compact('vehiculo'));
+
     }
 
     /**
@@ -67,9 +73,10 @@ class VehiculoController extends Controller
      * @param  \App\vehiculo  $vehiculo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, vehiculo $vehiculo)
+    public function update(VehiculoValidation $request, vehiculo $vehiculo)
     {
-        //
+        $vehiculo->update($request->all());
+        return redirect('/vehiculo');
     }
 
     /**
@@ -80,6 +87,8 @@ class VehiculoController extends Controller
      */
     public function destroy(vehiculo $vehiculo)
     {
-        //
+
+        $vehiculo->delete();
+        return redirect()->route('vehiculo.index')->with('info','registro eliminado');
     }
 }

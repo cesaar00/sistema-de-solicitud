@@ -15,11 +15,11 @@ class CreateVehiculosTable extends Migration
     {
         Schema::create('vehiculos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre_automovil');
+            $table->string('nombre_vehiculo',191);
             $table->integer('capacidad_tanque_gasolina');
-            $table->string('tipo_gasolina');
-            $table->string('modelo_automovil');
-            $table->string('descripcion_automovil');
+            $table->string('tipo_gasolina',191);
+            $table->string('modelo_vehiculo',191);
+            $table->string('descripcion_vehiculo',191);
             $table->timestamps();
         });
     }

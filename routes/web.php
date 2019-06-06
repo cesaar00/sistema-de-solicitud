@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::resource('/vale', 'ValeController');
 Route::resource('/tarjeta', 'TarjetaController');
+Route::resource('/vehiculo', 'VehiculoController');
 
 
 /* Route::get('/vales',function(){

@@ -28,7 +28,7 @@
                   @endforeach
                 </tbody>
               </table>
-              <a href=" {{route('tarjeta.create')}} " class="btn btn-primary">Crear</a>
+              <a href=" {{route('vehiculo.create')}} " class="btn btn-primary">Crear</a>
               {{$tarjetas->links()}}
 </div>
 @endsection

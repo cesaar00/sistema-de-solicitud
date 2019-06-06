@@ -13,7 +13,7 @@ class VehiculoValidation extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,21 +25,21 @@ class VehiculoValidation extends FormRequest
     {
         return [
 
-            'nombre_automovil'=> 'required|max:255',
+            'nombre_vehiculo'=> 'required|max:255',
             'capacidad_tanque_gasolina'=> 'required|max:255',
             'tipo_gasolina'=> 'required|max:255',
-            'modelo_automovil'=> 'required|max:255',
-            'descripcion_automovil'=> 'required|max:255',
+            'modelo_vehiculo'=> 'required|max:255',
+            'descripcion_vehiculo'=> 'required|max:255',
         ];
     }
     public function messages()
     {
         return [
-            'nombre_automovil.required'=> 'Introduzca el nombre del Automovil',
+            'nombre_vehiculo.required'=> 'Introduzca el nombre del vehiculo',
             'capacidad_tanque_gasolina.required'=> 'Introduzca la Capacidad del Tanque de Gasolina',
-            'tipo_gasolina.required'=> 'Introduzca el tipo de Gasolina del Automovil',
-            'modelo_automovil.required'=> 'Introduzca El Modelo del Automovil',
-            'descripcion_automovil.required'=> 'Introduzca Descripcion del Automovil'
+            'tipo_gasolina.required'=> 'Introduzca el tipo de Gasolina del vehiculo',
+            'modelo_vehiculo.required'=> 'Introduzca El Modelo del vehiculo',
+            'descripcion_vehiculo.required'=> 'Introduzca Descripcion del vehiculo'
 
         ];
     }

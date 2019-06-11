@@ -1,6 +1,14 @@
 @extends('layouts/app')
 .@section('content')
 <div class="container">
+    @if ($message=Session::get('info'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <p>{{$message}}</p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+          </div>
+    @endif
         <table class="table">
                 <thead>
                   <tr>
@@ -23,11 +31,14 @@
                           <td>
                                <a href="{{route('vehiculo.edit', $vehiculo->id)}}">Editar</a>
                           <td>
-                              <form action="{{route('vehiculo.destroy', $vehiculo->id)}}" method="post">
-                                {{ csrf_field() }}
-                                {{ method_field('DELETE') }}
-                                <button class="btn btn-link">Eliminar</button>
-                            </form></td>
+
+                                <button class="btn btn-link"
+                                    rel="tooltip"
+                                    data-toggle="modal"
+                                    data-target="#deletemodal"
+                                    data-name="{{$vehiculo->nombre_vehiculo}}"
+                                    data-id="{{$vehiculo->id}}">Eliminar</button>
+                            </td>
                       </tr>
                   @endforeach
                 </tbody>
@@ -35,4 +46,23 @@
               <a href=" {{route('vehiculo.create')}} " class="btn btn-primary">Crear</a>
               {{$vehiculos->links()}}
 </div>
+<div class="modal" id="deletemodal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p id="modalbody"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 @endsection

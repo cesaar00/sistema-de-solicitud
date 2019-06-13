@@ -17,10 +17,10 @@ Route::get('/', function () {
     return view('welcome')->name('raiz');
 });
 
-Route::resource('/vale', 'ValeController');
 Route::resource('/tarjeta', 'TarjetaController');
 Route::resource('/vehiculo', 'VehiculoController');
 Route::resource('/relaciontarjeta','RelacionTarjetaController');
+Route::resource('/abono', 'AbonoController');
 
 
 /* Route::get('/vales',function(){

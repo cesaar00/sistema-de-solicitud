@@ -47,6 +47,8 @@ class RelacionTarjetaController extends Controller
     public function store(RelacionTarjetaValidation $request)
     {
         //
+        relaciontarjeta::create($request->all());
+        return redirect('/relaciontarjeta');
     }
 
     /**

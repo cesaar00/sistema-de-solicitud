@@ -1,5 +1,5 @@
 @extends('layouts/app')
-.@section('content')
+@section('content')
 <div class="container">
         <table class="table">
                 <thead>
@@ -28,7 +28,7 @@
                   @endforeach
                 </tbody>
               </table>
-              <a href=" {{route('vehiculo.create')}} " class="btn btn-primary">Crear</a>
+              <a href=" {{route('tarjeta.create')}} " class="btn btn-primary">Crear</a>
               {{$tarjetas->links()}}
 </div>
 @endsection

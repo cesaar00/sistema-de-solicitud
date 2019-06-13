@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\mantenimiento;
 use Illuminate\Http\Request;
 use App\Http\Requests\MantenimientoValidation;
+use Illuminate\Support\Facades\DB;
 
 class MantenimientoController extends Controller
 {
@@ -15,8 +16,11 @@ class MantenimientoController extends Controller
      */
     public function index()
     {
-        //
-        $mantenimientos=mantenimiento::paginate(5);
+        $mantenimientos=DB::table('mantenimientos')
+        ->join('vehiculos','vehiculos.id','=','mantenimientos.id_vehiculo')
+        ->select('mantenimientos.id','vehiculos.nombre_vehiculo','mantenimientos.descripcion','mantenimientos.kilometraje',
+        'mantenimientos.fecha','mantenimientos.fecha_prox','mantenimientos.observaciones',
+        'mantenimientos.costo')->get();
         return view('mantenimientos/indexmantenimiento', compact('mantenimientos'));
     }
 

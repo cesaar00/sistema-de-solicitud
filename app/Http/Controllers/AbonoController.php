@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\abono;
 use Illuminate\Http\Request;
 use App\Http\Requests\AbonoValidation;
+use Illuminate\Support\Facades\DB;
 
 class AbonoController extends Controller
 {
@@ -16,7 +17,11 @@ class AbonoController extends Controller
     public function index()
     {
         //
-        $abonos=abono::paginate(5);
+       $abonos=DB::table('abonos')
+       ->join ('tarjetas','tarjetas.id','=','abonos.id_tarjeta')
+       ->select('abonos.id','abonos.folio','abonos.monto','abonos.fecha','abonos.estado','tarjetas.benefactor')->get();
+
+       ;
         return view('abonos/indexabonos', compact('abonos'));
     }
 

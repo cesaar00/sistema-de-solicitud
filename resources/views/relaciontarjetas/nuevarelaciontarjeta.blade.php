@@ -16,26 +16,28 @@
                 <label for="monto">Monto</label>
                 <input type="integer" class="form-control" name="monto" value=" {{old('monto')}}"  placeholder="Ingrese el Monto Cargado">
               </div>
-              <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                  @foreach ($tarjetas as $tarjeta)
-                  <label class="btn btn-secondary active">
-                        <input type="radio" name="options" id="option1" autocomplete="off" checked> {{$tarjeta->benefactor}}
-                      </label>
-                  @endforeach
+                <div class="form-group">
+                    <label for="id_tarjeta">Seleccione Benefactor</label>
+                    <select class="browser-default custom-select" name="id_tarjeta">
+                        @foreach ($tarjetas as $tarjeta)
+                        <option value="{{$tarjeta->id}}">{{$tarjeta->benefactor}}</option>
+                        @endforeach
+                    </select>
+                </div>
 
-            </div>
+
         <div class="form-group">
             <label for="tipo_gasolina">Tipo de Gasolina</label>
             <input type="integer" class="form-control" name="tipo_gasolina"   value=" {{old('tipo_gasolina')}}"  placeholder="Ingrese tipo Gasolina ">
         </div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                @foreach ($vehiculos as $vehiculo)
-                <label class="btn btn-secondary active">
-                      <input type="radio" name="options" id="option1" autocomplete="off" checked> {{$vehiculo->nombre_vehiculo}}
-                    </label>
-                @endforeach
-
-          </div>
+            <div class="form-group">
+                <label for="id_vehiculo">Seleccione Benefactor</label>
+                <select class="browser-default custom-select" name="id_vehiculo">
+                    @foreach ($vehiculos as $vehiculo)
+                    <option value="{{$vehiculo->id}}">{{$vehiculo->nombre_vehiculo}}</option>
+                    @endforeach
+                </select>
+            </div>
         <div class="form-group">
             <label for="fecha_carga">Fecha de Carga</label>
             <input type="integer" class="form-control" name="fecha_carga" value=" {{old('fecha_carga')}}"  placeholder="Ingrese la Fecha de Carga">

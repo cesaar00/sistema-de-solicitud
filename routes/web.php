@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome')->name('raiz');
+    return redirect('/tarjeta');
 });
 
 Route::resource('/tarjeta', 'TarjetaController');

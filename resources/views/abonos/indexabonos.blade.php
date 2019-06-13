@@ -17,9 +17,9 @@
                       <tr>
                           <td> {{$abono->folio}} </td>
                           <td> {{$abono->monto}} </td>
-                          <td> {{$abono->estado}} </td>
                           <td> {{$abono->fecha}} </td>
-                          <td> {{$abono->id_tarjeta}} </td>
+                          <td> {{$abono->estado}} </td>
+                          <td> {{$abono->benefactor}} </td>
                           <td>
                               <form action="{{route('abono.destroy', $abono->id)}}" method="post">
                                 {{ csrf_field() }}
@@ -31,6 +31,6 @@
                 </tbody>
               </table>
               <a href=" {{route('abono.create')}} " class="btn btn-primary">Crear</a>
-              {{$abonos->links()}}
+              {{-- {{$abonos->links()}} --}}
 </div>
 @endsection

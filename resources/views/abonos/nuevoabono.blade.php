@@ -18,11 +18,11 @@
               </div>
         <div class="form-group">
           <label for="monto">Monto</label>
-          <input type="text" class="form-control" name="monto" value=" {{old('monto')}}"  placeholder="Ingrese el Monto">
+          <input type="integer" class="form-control" name="monto" value=" {{old('monto')}}"  placeholder="Ingrese el Monto">
         </div>
         <div class="form-group">
             <label for="fecha">Fecha</label>
-            <input type="integer" class="form-control" name="fecha"   value=" {{old('fecha')}}"  placeholder="Ingrese fecha del Abono">
+            <input type="text" class="form-control" name="fecha"   value=" {{old('fecha')}}"  placeholder="Ingrese fecha del Abono">
         </div>
         <div class="form-group">
             <label for="estado">Estado</label>
@@ -30,7 +30,7 @@
         </div>
         <div class="form-group">
             <label for="id_tarjeta">Benefactor</label>
-            <input type="text" class="form-control" name="id_tarjeta" value=" {{old('id_tarjeta')}}"  placeholder="Ingrese el Benefactpr">
+            <input type="integer" class="form-control" name="id_tarjeta" value=" {{old('id_tarjeta')}}"  placeholder="Ingrese el Benefactpr">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

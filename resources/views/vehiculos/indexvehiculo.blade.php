@@ -33,9 +33,10 @@
                           <td>
 
                                 <button class="btn btn-link"
+                                    type="button"
                                     rel="tooltip"
                                     data-toggle="modal"
-                                    data-target="#deletemodal"
+                                    data-target="#deleteModal"
                                     data-name="{{$vehiculo->nombre_vehiculo}}"
                                     data-id="{{$vehiculo->id}}">Eliminar</button>
                             </td>
@@ -46,7 +47,7 @@
               <a href=" {{route('vehiculo.create')}} " class="btn btn-primary">Crear</a>
               {{$vehiculos->links()}}
 </div>
-<div class="modal" id="deletemodal" tabindex="-1" role="dialog">
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -65,4 +66,15 @@
           </div>
         </div>
       </div>
+      <script>
+            $('#deleteModal').on('show.bs.modal', function (event) {
+                alert('asdas')
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var nombrevehiculo = button.data('name')
+            var id=button.data('id')
+            var modal = $(this)
+             modal.find('.modal-title').text('Eliminar ' + nombrevehiculo)
+             modal.find('.modal-body #modalbody').text("Desea eliminar este registro")
+    })
+        </script>
 @endsection

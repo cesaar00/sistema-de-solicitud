@@ -30,7 +30,7 @@ class RelacionTarjetaValidation extends FormRequest
             'tipo_gasolina'=>'required|max:255',
             'id_vehiculo'=> 'required|max:255',
             'fecha_carga'=> 'required|max:255',
-            'litros'=> 'required|max255'
+            'litros'=> 'required|max:255'
         ];
     }
     public function messages()

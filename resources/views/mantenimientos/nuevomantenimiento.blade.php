@@ -38,7 +38,7 @@
         </div>
         <div class="form-group">
             <label for="costo">fecha</label>
-            <input type="text" class="form-control" name="costo" value=" {{old('costo')}}"  placeholder="Ingrese el costo">
+            <input type="integer" class="form-control" name="costo" value=" {{old('costo')}}"  placeholder="Ingrese el costo">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

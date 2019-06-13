@@ -17,7 +17,7 @@
                 <tbody>
                   @foreach ($mantenimientos as $mantenimiento)
                       <tr>
-                          <td> {{$mantenimiento->id_vehiculo}} </td>
+                          <td> {{$mantenimiento->nombre_vehiculo}} </td>
                           <td> {{$mantenimiento->descripcion}} </td>
                           <td> {{$mantenimiento->kilometraje}} </td>
                           <td> {{$mantenimiento->fecha}} </td>
@@ -35,6 +35,6 @@
                 </tbody>
               </table>
               <a href=" {{route('mantenimiento.create')}} " class="btn btn-primary">Crear</a>
-              {{$mantenimientos->links()}}
+             {{--  {{$mantenimientos->links()}} --}}
 </div>
 @endsection

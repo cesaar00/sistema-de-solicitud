@@ -17,14 +17,14 @@ class abonoseeder extends Seeder
             'monto'=> 10000,
             'fecha'=> '12-abril-2019',
             'estado'=> 'Correcto',
-            'id_tarjeta'=> 'Hidrosina'
+            'id_tarjeta'=> '1'
         ]);
          DB::table('abonos')->insert([
             'folio' => 112344,
             'monto'=> 10000,
             'fecha'=> '10-diciembre-2021',
             'estado'=> 'Correcto',
-            'id_tarjeta'=> 'Cantu'
+            'id_tarjeta'=> '2'
         ]);
 
         DB::table('abonos')->insert([
@@ -32,7 +32,7 @@ class abonoseeder extends Seeder
             'monto'=> 12000,
             'fecha'=> '24-agosto-2020',
             'estado'=> 'Correcto',
-            'id_tarjeta'=> 'Garel'
+            'id_tarjeta'=> '3'
         ]);
     }
 }

@@ -15,13 +15,13 @@
                 <tbody>
                   @foreach ($abonos as $abono)
                       <tr>
-                          <td> {{$abonos->folio}} </td>
-                          <td> {{$abonos->monto}} </td>
-                          <td> {{$abonos->estado}} </td>
-                          <td> {{$abonos->fecha}} </td>
-                          <td> {{$abonos->benefactor}} </td>
+                          <td> {{$abono->folio}} </td>
+                          <td> {{$abono->monto}} </td>
+                          <td> {{$abono->estado}} </td>
+                          <td> {{$abono->fecha}} </td>
+                          <td> {{$abono->id_tarjeta}} </td>
                           <td>
-                              <form action="{{route('abonos.destroy', $abonos->id)}}" method="post">
+                              <form action="{{route('abono.destroy', $abono->id)}}" method="post">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
                                 <button class="btn btn-link">Eliminar</button>

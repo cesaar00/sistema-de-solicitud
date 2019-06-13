@@ -21,6 +21,8 @@ Route::resource('/tarjeta', 'TarjetaController');
 Route::resource('/vehiculo', 'VehiculoController');
 Route::resource('/relaciontarjeta','RelacionTarjetaController');
 Route::resource('/abono', 'AbonoController');
+Route::resource('/mantenimiento', 'MantenimientoController');
+
 
 
 /* Route::get('/vales',function(){

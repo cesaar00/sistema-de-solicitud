@@ -29,8 +29,8 @@
             <input type="text" class="form-control" name="estado" value=" {{old('estado')}}"  placeholder="Ingrese el estado">
         </div>
         <div class="form-group">
-            <label for="benefactor">Benefactor</label>
-            <input type="text" class="form-control" name="benefactor" value=" {{old('benefactor')}}"  placeholder="Ingrese el Benefactpr">
+            <label for="id_tarjeta">Benefactor</label>
+            <input type="text" class="form-control" name="id_tarjeta" value=" {{old('id_tarjeta')}}"  placeholder="Ingrese el Benefactpr">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

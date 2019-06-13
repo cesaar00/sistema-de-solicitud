@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAbonosTable extends Migration
+class CreateMantenimientosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateAbonosTable extends Migration
      */
     public function up()
     {
-        Schema::create('abonos', function (Blueprint $table) {
+        Schema::create('mantenimientos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('folio');
-            $table->bigInteger('monto');
+            $table->bigInteger('id_vehiculo');
+            $table->string('descripcion',191);
+            $table->bigInteger('kilometraje');
             $table->string('fecha',191);
-            $table->String('estado',191);
-            $table->String('id_tarjeta',191);
-
+            $table->string('fecha_prox',191);
+            $table->string('observaciones',191);
+            $table->string('costo');
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ class CreateAbonosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('abonos');
+        Schema::dropIfExists('mantenimientos');
     }
 }

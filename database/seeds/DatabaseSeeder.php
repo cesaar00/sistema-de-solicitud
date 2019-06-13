@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call(tarjetaseeder::class);
         $this->call(vehiculoseeder::class);
         $this->call(relaciontarjeta::class);
+        $this->call(abonoseeder::class);
     }
 }

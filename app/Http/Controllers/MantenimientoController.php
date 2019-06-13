@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\abono;
+use App\mantenimiento;
 use Illuminate\Http\Request;
-use App\Http\Requests\AbonoValidation;
+use App\Http\Requests\MantenimientoValidation;
 
-class AbonoController extends Controller
+class MantenimientoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class AbonoController extends Controller
     public function index()
     {
         //
-        $abonos=abono::paginate(5);
-        return view('abonos/indexabonos', compact('abonos'));
+        $mantenimientos=mantenimiento::paginate(5);
+        return view('mantenimientos/indexmantenimiento', compact('mantenimientos'));
     }
 
     /**
@@ -28,7 +28,7 @@ class AbonoController extends Controller
     public function create()
     {
         //
-        return view('abonos/nuevoabono');
+        return view('mantenimientos/nuevomantenimiento');
     }
 
     /**
@@ -37,20 +37,20 @@ class AbonoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AbonoValidation $request)
+    public function store(MantenimientoValidation $request)
     {
         //
-        abono::create($request->all());
-        return redirect('/abono');
+        mantenimiento::create($request->all());
+        return redirect('mantenimiento');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\abono  $abono
+     * @param  \App\mantenimiento  $mantenimiento
      * @return \Illuminate\Http\Response
      */
-    public function show(abono $abono)
+    public function show(mantenimiento $mantenimiento)
     {
         //
     }
@@ -58,10 +58,10 @@ class AbonoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\abono  $abono
+     * @param  \App\mantenimiento  $mantenimiento
      * @return \Illuminate\Http\Response
      */
-    public function edit(abono $abono)
+    public function edit(mantenimiento $mantenimiento)
     {
         //
     }
@@ -70,10 +70,10 @@ class AbonoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\abono  $abono
+     * @param  \App\mantenimiento  $mantenimiento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, abono $abono)
+    public function update(Request $request, mantenimiento $mantenimiento)
     {
         //
     }
@@ -81,13 +81,13 @@ class AbonoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\abono  $abono
+     * @param  \App\mantenimiento  $mantenimiento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(abono $abono)
+    public function destroy(mantenimiento $mantenimiento)
     {
         //
-        $abono->delete();
-        return redirect()->route('abono.index')->with('info', 'registro eliminado');
+        $mantenimiento->delete();
+        return redirect()->route('mantenimiento.index')->with('info','registro eliminado');
     }
 }

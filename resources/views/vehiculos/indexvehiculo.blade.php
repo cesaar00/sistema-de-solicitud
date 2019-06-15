@@ -60,21 +60,16 @@
               <p id="modalbody"></p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Save changes</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <form action=" {{route('vehiculo.destroy', 'null')}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <input type="hidden" id="deleteId" name="id">
+            <button type="submit" class="btn btn-primary" id="deletebutton">Eliminar</button>
+
+            </form>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
             </div>
           </div>
         </div>
       </div>
-      <script>
-            $('#deleteModal').on('show.bs.modal', function (event) {
-                alert('asdas')
-            var button = $(event.relatedTarget) // Button that triggered the modal
-            var nombrevehiculo = button.data('name')
-            var id=button.data('id')
-            var modal = $(this)
-             modal.find('.modal-title').text('Eliminar ' + nombrevehiculo)
-             modal.find('.modal-body #modalbody').text("Desea eliminar este registro")
-    })
-        </script>
 @endsection

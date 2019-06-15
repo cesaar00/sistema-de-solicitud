@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\vehiculo;
 use Illuminate\Http\Request;
 use App\Http\Requests\VehiculoValidation;
+use Illuminate\Support\Facades\DB;
 
 class VehiculoController extends Controller
 {
@@ -85,10 +86,9 @@ class VehiculoController extends Controller
      * @param  \App\vehiculo  $vehiculo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(vehiculo $vehiculo)
+    public function destroy(Request $vehiculo)
     {
-
-        $vehiculo->delete();
+    DB::table('vehiculos')->where('id', '=',$vehiculo->id)->delete();
         return redirect()->route('vehiculo.index')->with('info','registro eliminado');
     }
 }

@@ -28,18 +28,15 @@
                           <td> {{$vehiculo->tipo_gasolina}} </td>
                           <td> {{$vehiculo->modelo_vehiculo}} </td>
                           <td> {{$vehiculo->descripcion_vehiculo}} </td>
-                          <td>
-                               <a href="{{route('vehiculo.edit', $vehiculo->id)}}">Editar</a>
-                          <td>
+                          @role('administrator')
 
-                                <button class="btn btn-link"
-                                    type="button"
-                                    rel="tooltip"
-                                    data-toggle="modal"
-                                    data-target="#deleteModal"
-                                    data-name="{{$vehiculo->nombre_vehiculo}}"
-                                    data-id="{{$vehiculo->id}}">Eliminar</button>
-                            </td>
+                            @componente([
+                                'route'=>'vehiculo',
+                                'id'=>$vehiculo->id,
+                                'name'=> $vehiculo->nombre_vehiculo,
+                            ])
+                            @endcomponente
+                            @endrole
                       </tr>
                   @endforeach
                 </tbody>
@@ -47,29 +44,5 @@
               <a href=" {{route('vehiculo.create')}} " class="btn btn-primary">Crear</a>
               {{$vehiculos->links()}}
 </div>
-<div class="modal" id="deleteModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title"></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p id="modalbody"></p>
-            </div>
-            <div class="modal-footer">
-            <form action=" {{route('vehiculo.destroy', 'null')}}" method="POST">
-            @csrf
-            @method('DELETE')
-            <input type="hidden" id="deleteId" name="id">
-            <button type="submit" class="btn btn-primary" id="deletebutton">Eliminar</button>
 
-            </form>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            </div>
-          </div>
-        </div>
-      </div>
 @endsection

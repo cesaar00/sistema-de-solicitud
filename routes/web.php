@@ -14,14 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('/tarjeta');
+    return redirect('/login');
+});
+Route::group(['middleware' => ['role:administrator']], function () {
+    Route::resource('/vehiculo', 'VehiculoController');
+    Route::resource('/tarjeta', 'TarjetaController');
+    Route::resource('/relaciontarjeta','RelacionTarjetaController');
+    Route::resource('/abono', 'AbonoController');
+    Route::resource('/mantenimiento', 'MantenimientoController');
 });
 
-Route::resource('/tarjeta', 'TarjetaController');
-Route::resource('/vehiculo', 'VehiculoController');
-Route::resource('/relaciontarjeta','RelacionTarjetaController');
-Route::resource('/abono', 'AbonoController');
-Route::resource('/mantenimiento', 'MantenimientoController');
+Route::group(['middleware' => ['role:vizor|administrator']], function () {
+    Route::resource('/vehiculo', 'VehiculoController')->only(['index']);
+    Route::resource('/tarjeta', 'TarjetaController')->only(['index']);
+    Route::resource('/relaciontarjeta','RelacionTarjetaController')->only(['index']);
+    Route::resource('/abono', 'AbonoController')->only(['index']);
+    Route::resource('/mantenimiento', 'MantenimientoController')->only(['index']);
+});
 
 
 

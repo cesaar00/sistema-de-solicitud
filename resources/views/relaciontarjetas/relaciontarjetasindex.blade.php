@@ -23,11 +23,15 @@
                           <td> {{$relaciontarjeta->fecha_carga}} </td>
                           <td> {{$relaciontarjeta->litros}} </td>
                           <td>
-                              <form action="{{route('relaciontarjeta.destroy', $relaciontarjeta->id)}}" method="post">
-                                {{ csrf_field() }}
-                                {{ method_field('DELETE') }}
-                                <button class="btn btn-link">Eliminar</button>
-                            </form></td>
+                            @role('administrator')
+
+                            @componente([
+                                'route'=>'relaciontarjeta',
+                                'id'=>$relaciontarjeta->id,
+                                'name'=> $relaciontarjeta->nombre_vehiculo,
+                            ])
+                            @endcomponente
+                            @endrole</td>
                       </tr>
                   @endforeach
                 </tbody>

@@ -68,9 +68,10 @@ class RelacionTarjetaController extends Controller
      * @param  \App\RelacionTarjeta  $relacionTarjeta
      * @return \Illuminate\Http\Response
      */
-    public function edit(RelacionTarjeta $relacionTarjeta)
+    public function edit(RelacionTarjeta $relaciontarjeta)
     {
         //
+        return view('relaciontarjetas/editrelaciontarjeta',compact('relaciontarjeta'));
     }
 
     /**
@@ -80,9 +81,11 @@ class RelacionTarjetaController extends Controller
      * @param  \App\RelacionTarjeta  $relacionTarjeta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RelacionTarjeta $relacionTarjeta)
+    public function update(Request $request, RelacionTarjeta $relaciontarjetum)
     {
         //
+        $relaciontarjetum->update($request->all());
+        return redirect('/relaciontarjeta');
     }
 
     /**
@@ -91,8 +94,10 @@ class RelacionTarjetaController extends Controller
      * @param  \App\RelacionTarjeta  $relacionTarjeta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RelacionTarjeta $relacionTarjeta)
+    public function destroy(RelacionTarjeta $relaciontarjetum)
     {
         //
+        DB::table('relaciontarjetas')->where('id', '=',$relaciontarjetum->id)->delete();
+        return redirect()->route('relaciontarjeta.index')->with('info','registro eliminado');
     }
 }

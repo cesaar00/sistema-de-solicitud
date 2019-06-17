@@ -19,11 +19,16 @@
                           <td> {{$tarjeta->saldo}} </td>
                           <td> {{$tarjeta->benefactor}} </td>
                           <td>
-                              <form action="{{route('tarjeta.destroy', $tarjeta->id)}}" method="post">
-                                {{ csrf_field() }}
-                                {{ method_field('DELETE') }}
-                                <button class="btn btn-link">Eliminar</button>
-                            </form></td>
+                                @role('administrator')
+
+                                @componente([
+                                    'route'=>'tarjeta',
+                                    'id'=>$tarjeta->id,
+                                    'name'=> $tarjeta->benefactor,
+                                ])
+                                @endcomponente
+                                @endrole
+                            </td>
                       </tr>
                   @endforeach
                 </tbody>

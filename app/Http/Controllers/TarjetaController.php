@@ -73,7 +73,7 @@ class TarjetaController extends Controller
      * @param  \App\tarjeta  $tarjeta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tarjeta $tarjeta)
+    public function update(TarjetaValidation $request, tarjeta $tarjetum)
     {
         //
     }
@@ -87,7 +87,7 @@ class TarjetaController extends Controller
     public function destroy(tarjeta $tarjetum)
     {
         //
-        $tarjetum->delete();
-        return redirect()->route('tarjeta.index')->with('info', 'registro eliminado');
+        DB::table('tarjetas')->where('id', '=',$tarjetum->id)->delete();
+        return redirect()->route('tarjeta.index')->with('info','registro eliminado');;
     }
 }

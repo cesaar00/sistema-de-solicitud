@@ -68,10 +68,10 @@ class RelacionTarjetaController extends Controller
      * @param  \App\RelacionTarjeta  $relacionTarjeta
      * @return \Illuminate\Http\Response
      */
-    public function edit(RelacionTarjeta $relaciontarjeta)
+    public function edit(RelacionTarjeta $relaciontarjetum)
     {
-        //
-        return view('relaciontarjetas/editrelaciontarjeta',compact('relaciontarjeta'));
+        //dd($relaciontarjeta->all());
+        return view('relaciontarjetas/editrelaciontarjeta',compact('relaciontarjetum'));
     }
 
     /**
@@ -81,7 +81,7 @@ class RelacionTarjetaController extends Controller
      * @param  \App\RelacionTarjeta  $relacionTarjeta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RelacionTarjeta $relaciontarjetum)
+    public function update(RelacionTarjetaValidation $request, RelacionTarjeta $relaciontarjetum)
     {
         //
         $relaciontarjetum->update($request->all());

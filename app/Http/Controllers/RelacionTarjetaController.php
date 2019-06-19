@@ -47,8 +47,18 @@ class RelacionTarjetaController extends Controller
     public function store(RelacionTarjetaValidation $request)
     {
         //
-        relaciontarjeta::create($request->all());
-        return redirect('/relaciontarjeta');
+        $saldo = DB::table('tarjetas')->
+        where('id', '=', $request->id_tarjeta)->latest()->value('saldo');
+        if ($saldo>=$request->monto) {
+
+            relaciontarjeta::create($request->all());
+            DB::table('tarjetas')->where('id', '=', $request->id_tarjeta)
+            ->decrement('saldo', $request->monto);
+            return redirect('/relaciontarjeta');
+        }
+        else{
+            return redirect()->route('relaciontarjeta.create')->with('error','Saldo insuficiente');
+        }
     }
 
     /**
@@ -70,8 +80,14 @@ class RelacionTarjetaController extends Controller
      */
     public function edit(RelacionTarjeta $relaciontarjetum)
     {
+        //echo($relaciontarjetum);
         //dd($relaciontarjeta->all());
-        return view('relaciontarjetas/editrelaciontarjeta',compact('relaciontarjetum'));
+       $benefactor = DB::table('tarjetas')->where('id','=', $relaciontarjetum->id_tarjeta)->
+       latest()->value('benefactor');
+       $nvehiculo = DB::table('vehiculos')->where('id','=', $relaciontarjetum->id_vehiculo)->
+       latest()->value('nombre_vehiculo');
+
+        return view('relaciontarjetas/editrelaciontarjeta',compact(['relaciontarjetum','benefactor','nvehiculo']));
     }
 
     /**
@@ -94,10 +110,10 @@ class RelacionTarjetaController extends Controller
      * @param  \App\RelacionTarjeta  $relacionTarjeta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RelacionTarjeta $relaciontarjetum)
+    public function destroy(Request $relaciontarjetum)
     {
         //
-        DB::table('relaciontarjetas')->where('id', '=',$relaciontarjetum->id)->delete();
+        DB::table('relacion_tarjetas')->where('id', '=',$relaciontarjetum->id)->delete();
         return redirect()->route('relaciontarjeta.index')->with('info','registro eliminado');
     }
 }

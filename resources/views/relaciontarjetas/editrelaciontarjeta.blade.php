@@ -19,7 +19,7 @@
               </div>
         <div class="form-group">
                 <label for="benefactor">Benefactor</label>
-                <input type="text" class="form-control" name="benefactor" value=" {{$relaciontarjetum->benefactor}}"  placeholder="Ingrese la Capacidad del Tanque de Gasolina">
+                <input type="text" class="form-control" name="benefactor" value=" {{$benefactor}}"  placeholder="Ingrese la Capacidad del Tanque de Gasolina">
               </div>
         <div class="form-group">
           <label for="tipo_gasolina">Tipo de Gasolina</label>
@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
             <label for="nombre_vehiculo">Nombre Vehiculo</label>
-            <input type="text" class="form-control" name="nombre_vehiculo"   value=" {{$relaciontarjetum->nombre_vehiculo}}"  placeholder="Ingrese el Nombre del Vehiculo">
+            <input type="text" class="form-control" name="nombre_vehiculo"   value=" {{$nvehiculo}}"  placeholder="Ingrese el Nombre del Vehiculo">
         </div>
          <div class="form-group">
             <label for="fecha_carga">Fecha de Carga</label>

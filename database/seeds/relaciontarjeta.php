@@ -12,7 +12,7 @@ class relaciontarjeta extends Seeder
     public function run()
     {
 
-        DB::table('relacion_tarjetas')->insert([
+       /*  DB::table('relacion_tarjetas')->insert([
             'monto'=>1200,
             'id_tarjeta'=> 1,
             'tipo_gasolina'=> 'Diesel',
@@ -35,6 +35,6 @@ class relaciontarjeta extends Seeder
             'id_vehiculo'=> 3,
             'fecha_carga'=> '10-abril-2019',
             'litros'=> 20
-        ]);
+        ]); */
     }
 }

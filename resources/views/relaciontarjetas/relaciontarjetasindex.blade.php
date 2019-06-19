@@ -1,6 +1,14 @@
 @extends('layouts/app')
-.@section('content')
+@section('content')
 <div class="container">
+        @if ($message=Session::get('info'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <p>{{$message}}</p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+              </div>
+        @endif
         <table class="table">
                 <thead>
                   <tr>
@@ -10,6 +18,8 @@
                     <th scope="col">Vehiculo</th>
                     <th scope="col">Fecha de Carga</th>
                     <th scope="col">Litros</th>
+                    <th scope="col">Precio Unitario</th>
+
                     <th scope="col"></th>
                   </tr>
                 </thead>
@@ -23,7 +33,11 @@
                           <td> {{$relaciontarjeta->fecha_carga}} </td>
                           <td> {{$relaciontarjeta->litros}} </td>
                           <td>
-                            @role('administrator')
+                               {{round($relaciontarjeta->monto / $relaciontarjeta->litros, 2)}}
+                          </td>
+                          <td>
+
+                           {{--  @role('administrator')
 
                             @componente([
                                 'route'=>'relaciontarjeta',
@@ -31,7 +45,7 @@
                                 'name'=> $relaciontarjeta->nombre_vehiculo,
                             ])
                             @endcomponente
-                            @endrole</td>
+                            @endrole --}}</td>
                       </tr>
                   @endforeach
                 </tbody>

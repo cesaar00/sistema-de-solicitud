@@ -39,7 +39,7 @@
             <input type="integer" class="form-control" name="tipo_gasolina"   value=" {{old('tipo_gasolina')}}"  placeholder="Ingrese tipo Gasolina ">
         </div>
             <div class="form-group">
-                <label for="id_vehiculo">Seleccione Benefactor</label>
+                <label for="id_vehiculo">Seleccione Vehiculo</label>
                 <select class="browser-default custom-select" name="id_vehiculo">
                     @foreach ($vehiculos as $vehiculo)
                     <option value="{{$vehiculo->id}}">{{$vehiculo->nombre_vehiculo}}</option>

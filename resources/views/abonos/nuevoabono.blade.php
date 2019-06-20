@@ -29,9 +29,13 @@
             <input type="text" class="form-control" name="estado" value=" {{old('estado')}}"  placeholder="Ingrese el estado">
         </div>
         <div class="form-group">
-            <label for="id_tarjeta">Benefactor</label>
-            <input type="integer" class="form-control" name="id_tarjeta" value=" {{old('id_tarjeta')}}"  placeholder="Ingrese el Benefactpr">
-        </div>
+                <label for="id_tarjeta">Seleccione Benefactor</label>
+                <select class="browser-default custom-select" name="id_tarjeta">
+                    @foreach ($tarjetas as $tarjeta)
+                    <option value="{{$tarjeta->id}}">{{$tarjeta->benefactor}}</option>
+                    @endforeach
+                </select>
+            </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 </div>

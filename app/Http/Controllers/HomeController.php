@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::orderBy('id', 'DESC')->paginate(3);
-        return view('home', compact('users'));
+        return view('usuarios/indexusuarios', compact('users'));
     }
 
     /**
@@ -37,7 +37,7 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        
+
         $user = User::find($id);
         $user->delete();
         return back()->with('info', 'El usuario ha sido eliminado');

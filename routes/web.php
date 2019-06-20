@@ -40,7 +40,7 @@ Route::group(['middleware' => ['role:vizor|administrator']], function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::delete('/home/{id}', 'HomeController@destroy')->name('home.destroy');
+/* Route::get('/home', 'HomeController@index')->name('home');
+Route::delete('/home/{id}', 'HomeController@destroy')->name('home.destroy'); */
 
-Route::resource('/home', 'HomeController')->only(['index', 'destroy']);
+Route::resource('/user', 'UserController');

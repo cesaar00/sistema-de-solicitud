@@ -33,7 +33,8 @@ class AbonoController extends Controller
     public function create()
     {
         //
-        return view('abonos/nuevoabono');
+        $tarjetas=DB::table('tarjetas')->get();
+        return view('abonos/nuevoabono', compact('tarjetas'));
     }
 
     /**
@@ -45,8 +46,14 @@ class AbonoController extends Controller
     public function store(AbonoValidation $request)
     {
         //
-        abono::create($request->all());
-        return redirect('/abono');
+        $saldo = DB::table('tarjetas')->
+        where('id', '=', $request->id_tarjeta)->latest()->value('saldo');
+
+            abono::create($request->all());
+            DB::table('tarjetas')->where('id', '=', $request->id_tarjeta)
+            ->increment('saldo', $request->monto);
+            return redirect('/abono');
+
     }
 
     /**

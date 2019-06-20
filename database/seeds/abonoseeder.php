@@ -12,7 +12,7 @@ class abonoseeder extends Seeder
     public function run()
     {
         //
-        DB::table('abonos')->insert([
+        /* DB::table('abonos')->insert([
             'folio' => 10233304,
             'monto'=> 10000,
             'fecha'=> '12-abril-2019',
@@ -33,6 +33,6 @@ class abonoseeder extends Seeder
             'fecha'=> '24-agosto-2020',
             'estado'=> 'Correcto',
             'id_tarjeta'=> '3'
-        ]);
+        ]); */
     }
 }

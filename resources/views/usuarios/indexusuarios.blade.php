@@ -34,7 +34,7 @@
                                     @role('administrator')
 
                                     @componente([
-                                        'route'=>'home',
+                                        'route'=>'user',
                                         'id'=>$user->id,
                                         'name'=> $user->name,
                                         ])
@@ -44,10 +44,11 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <a href=" {{route('user.create')}} " class="btn btn-primary">Crear</a>
+                </div>
                     {!! $users->render() !!}
                 </div>
             </div>
         </div>
-    </div>
 </div>
 @endsection

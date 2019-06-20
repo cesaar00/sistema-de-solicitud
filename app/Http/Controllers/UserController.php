@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\UsuarioValidation;
 
 class UserController extends Controller
 {
@@ -14,7 +16,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        
+
+        $users = User::orderBy('id', 'DESC')->paginate(3);
+        return view('usuarios/indexusuarios', compact('users'));
     }
 
     /**
@@ -25,6 +29,8 @@ class UserController extends Controller
     public function create()
     {
         //
+        $roles=DB::table('roles')->get();
+        return view('usuarios/nuevousuario', compact('roles'));
     }
 
     /**
@@ -33,9 +39,24 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsuarioValidation $request)
     {
         //
+        $user= [
+            'name'=> $request->name,
+            'lastname'=> $request->lastname,
+            'email'=> $request->email,
+            'password'=> bcrypt($request->password)
+        ];
+
+        $elid=User::create($user);
+
+        DB::table('model_has_roles')->insert([
+          'role_id'=> $request->role_id,
+          'model_type' => 'App\User',
+          'model_id' => $elid->id
+         ]);
+        return redirect('/user');
     }
 
     /**
@@ -81,5 +102,8 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        $user = User::find($id);
+        $user->delete();
+        return back()->with('info', 'El usuario ha sido eliminado');
     }
 }

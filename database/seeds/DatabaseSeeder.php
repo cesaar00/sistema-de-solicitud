@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
         $this->call(roles::class);
         $this->call(tarjetaseeder::class);
         $this->call(vehiculoseeder::class);
-        $this->call(relaciontarjeta::class);
-        $this->call(abonoseeder::class);
+        //$this->call(relaciontarjeta::class);
+       // $this->call(abonoseeder::class);
         $this->call(mantenimientoseeder::class);
 
     }

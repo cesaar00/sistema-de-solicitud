@@ -22,6 +22,7 @@ class CreateMantenimientosTable extends Migration
             $table->string('fecha_prox',191);
             $table->string('observaciones',191);
             $table->string('costo');
+            $table->boolean('tipo')->default(true);
             $table->timestamps();
         });
     }

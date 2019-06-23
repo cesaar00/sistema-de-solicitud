@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Sistema de solicitudes'),
+    'name' => env('APP_NAME', 'CRIT TAMAULIPAS'),
 
     /*
     |--------------------------------------------------------------------------

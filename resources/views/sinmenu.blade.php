@@ -17,8 +17,6 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -37,23 +35,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                    <li class="nav-item {{request()->is ('tarjeta*') ? 'active' : ''}}">
-                            <a class="nav-link" href="{{route('tarjeta.index')}} ">Benafactor <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item {{request()->is ('vehiculo*') ? 'active' : ''}}">
-                            <a class="nav-link" href="{{route('vehiculo.index')}}">Vehiculo <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item {{request()->is ('mantenimiento*') ? 'active' : ''}}">
-                            <a class="nav-link" href="{{route('mantenimiento.index')}}">Mantenimiento <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item {{request()->is ('abono*') ? 'active' : ''}}">
-                            <a class="nav-link" href="{{route('abono.index')}}">Abono <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item {{request()->is ('relaciontarjeta*') ? 'active' : ''}}">
-                            <a class="nav-link" href="{{route('relaciontarjeta.index')}}">Tarjeta <span class="sr-only">(current)</span></a>
-                        </li>
-                    </ul>
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

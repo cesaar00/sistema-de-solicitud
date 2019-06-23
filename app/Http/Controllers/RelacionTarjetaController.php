@@ -49,14 +49,22 @@ class RelacionTarjetaController extends Controller
         //
         $saldo = DB::table('tarjetas')->
         where('id', '=', $request->id_tarjeta)->latest()->value('saldo');
+        $max = DB::table('vehiculos')->
+        where('id', '=', $request->id_vehiculo)->latest()->value('capacidad_tanque_gasolina');
         if ($saldo>=$request->monto) {
 
-            relaciontarjeta::create($request->all());
-            DB::table('tarjetas')->where('id', '=', $request->id_tarjeta)
-            ->decrement('saldo', $request->monto);
-            return redirect('/relaciontarjeta');
+            if ($request->litros <= $max) {
+                relaciontarjeta::create($request->all());
+                DB::table('tarjetas')->where('id', '=', $request->id_tarjeta)
+                ->decrement('saldo', $request->monto);
+                return redirect('/relaciontarjeta');
+
+            } else{
+                return redirect()->route('relaciontarjeta.create')->with('error','Los litros que quiere ingresar superan la capacidad del Tanque');
+            }
+
         }
-        else{
+        else {
             return redirect()->route('relaciontarjeta.create')->with('error','Saldo insuficiente');
         }
     }
@@ -104,6 +112,10 @@ class RelacionTarjetaController extends Controller
         return redirect('/relaciontarjeta');
     }
 
+    public function cancelar(RelacionTarjetaValidation $relaciontarjeta){
+
+
+    }
     /**
      * Remove the specified resource from storage.
      *

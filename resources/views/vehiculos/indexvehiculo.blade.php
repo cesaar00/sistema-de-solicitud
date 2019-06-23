@@ -12,6 +12,7 @@
         <table class="table">
                 <thead>
                   <tr>
+                    <th scope="col">Disponible</th>
                     <th scope="col">Nombre del Automovil</th>
                     <th scope="col">Capacidad del Tanque de Gasolina</th>
                     <th scope="col">Tipo de Gasolina</th>
@@ -23,6 +24,11 @@
                 <tbody>
                   @foreach ($vehiculos as $vehiculo)
                       <tr>
+                        <td>
+                            <i class="material-icons">
+                            {{$vehiculo->disponible ? ('done') : ('block')}}
+                            </i>
+                        </td>
                           <td> {{$vehiculo->nombre_vehiculo}} </td>
                           <td> {{$vehiculo->capacidad_tanque_gasolina}} </td>
                           <td> {{$vehiculo->tipo_gasolina}} </td>

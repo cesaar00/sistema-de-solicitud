@@ -4,9 +4,9 @@
         @if ($message=Session::get('info'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
         <p>{{$message}}</p>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <a type="a" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-        </button>
+        </a>
               </div>
         @endif
         <table class="table">
@@ -36,7 +36,9 @@
                                {{round($relaciontarjeta->monto / $relaciontarjeta->litros, 2)}}
                           </td>
                           <td>
-
+                                @role('administrator')
+                          <a href=" {{route('relaciontarjetum.cancelar',$relaciontarjeta->id)}}" class="btn btn-dark">Cancelar</a>
+                                @endrole
                            {{--  @role('administrator')
 
                             @componente([

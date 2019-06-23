@@ -20,6 +20,7 @@ class CreateVehiculosTable extends Migration
             $table->string('tipo_gasolina',191);
             $table->string('modelo_vehiculo',191);
             $table->string('descripcion_vehiculo',191);
+            $table->boolean('disponible')->default(true);
             $table->timestamps();
         });
     }

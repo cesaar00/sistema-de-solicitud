@@ -6,6 +6,7 @@ use App\mantenimiento;
 use Illuminate\Http\Request;
 use App\Http\Requests\MantenimientoValidation;
 use Illuminate\Support\Facades\DB;
+use App\vehiculo;
 
 class MantenimientoController extends Controller
 {
@@ -16,12 +17,11 @@ class MantenimientoController extends Controller
      */
     public function index()
     {
+
         $mantenimientos=DB::table('mantenimientos')
         ->join('vehiculos','vehiculos.id','=','mantenimientos.id_vehiculo')
-        ->select('mantenimientos.id','vehiculos.nombre_vehiculo','mantenimientos.descripcion','mantenimientos.kilometraje',
-        'mantenimientos.fecha','mantenimientos.fecha_prox','mantenimientos.observaciones',
-        'mantenimientos.costo')->get();
-        return view('mantenimientos/indexmantenimiento', compact('mantenimientos'));
+        ->select('mantenimientos.*','vehiculos.nombre_vehiculo')->get();
+        return view('mantenimientos/indexmantenimiento', compact(['mantenimientos']));
     }
 
     /**
@@ -32,7 +32,8 @@ class MantenimientoController extends Controller
     public function create()
     {
         //
-        return view('mantenimientos/nuevomantenimiento');
+        $vehiculos= DB::table('vehiculos')->get();
+        return view('mantenimientos/nuevomantenimiento', compact(['vehiculos']));
     }
 
     /**
@@ -43,9 +44,28 @@ class MantenimientoController extends Controller
      */
     public function store(MantenimientoValidation $request)
     {
-        //
+        //dd($request->all());
+        /* DB::table('vehiculos')
+        ->where('id', '=', $request->id)
+        ->update('disponible'-> $request->tipo)
+        ; */
+        $datos = [
+            'id' => $request->id,
+            'tipo' => $request->tipo
+        ];
+
         mantenimiento::create($request->all());
-        return redirect('mantenimiento');
+        return redirect()->route('mantenimiento.up', $datos);
+
+    }
+
+    public function up($datos) {
+
+
+        DB::table('vehiculos')
+        ->where('id', '=', $datos->id)
+        ->update(['disponible'=> $datos->tipo]);
+        return redirect('/mantenimiento');
     }
 
     /**

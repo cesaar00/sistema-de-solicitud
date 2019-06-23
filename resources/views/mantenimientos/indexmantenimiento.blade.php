@@ -7,10 +7,12 @@
                     <th scope="col">Nombre del Vehiculo</th>
                     <th scope="col">Descripcion</th>
                     <th scope="col">Kilometraje</th>
-                    <th scope="col">Fecha del Mantenimiento</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Fecha </th>
                     <th scope="col">Fecha Proxima</th>
                     <th scope="col">Observaciones</th>
                     <th scope="col">Costo</th>
+
                     <th scope="col"></th>
                   </tr>
                 </thead>
@@ -20,6 +22,7 @@
                           <td> {{$mantenimiento->nombre_vehiculo}} </td>
                           <td> {{$mantenimiento->descripcion}} </td>
                           <td> {{$mantenimiento->kilometraje}} </td>
+                          <td> {{$mantenimiento->tipo ? 'disponible': 'no disponible'}}</td>
                           <td> {{$mantenimiento->fecha}} </td>
                           <td> {{$mantenimiento->fecha_prox}} </td>
                           <td> {{$mantenimiento->observaciones}} </td>

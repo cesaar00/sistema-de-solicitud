@@ -13,9 +13,13 @@
     <form method ="POST" action=" {{route('mantenimiento.store')}} ">
         @csrf
         <div class="form-group">
-                <label for="id_vehiculo">Nombre del Vehiculo</label>
-                <input type="integer" class="form-control" name="id_vehiculo" value=" {{old('id_vehiculo')}}"  placeholder="Ingrese el Nombre del Vehiculo">
-              </div>
+                <label for="id_vehiculo">Seleccione Vehiculo</label>
+                <select class="browser-default custom-select" name="id_vehiculo">
+                    @foreach ($vehiculos as $vehiculo)
+                    <option value="{{$vehiculo->id}}">{{$vehiculo->nombre_vehiculo}}</option>
+                    @endforeach
+                </select>
+            </div>
         <div class="form-group">
           <label for="descripcion">Descripcion</label>
           <input type="text" class="form-control" name="descripcion" value=" {{old('descripcion')}}"  placeholder="Ingrese una Descripcion">
@@ -25,7 +29,14 @@
             <input type="integer" class="form-control" name="kilometraje"   value=" {{old('kilometraje')}}"  placeholder="Ingrese kilometraje del vehiculo">
         </div>
         <div class="form-group">
-            <label for="fecha">fecha del Mantenimiento</label>
+                <label for="tipo">Tipo</label>
+                <select class="browser-default custom-select" name="tipo">
+                    <option value="1">entrada</option>
+                    <option value="0">salida</option>
+                </select>
+            </div>
+        <div class="form-group">
+            <label for="fecha">fecha </label>
             <input type="text" class="form-control" name="fecha" value=" {{old('fecha')}}"  placeholder="Ingrese la fecha">
         </div>
         <div class="form-group">
@@ -37,10 +48,12 @@
             <input type="text" class="form-control" name="observaciones" value=" {{old('observaciones')}}"  placeholder="Ingrese observaciones">
         </div>
         <div class="form-group">
-            <label for="costo">fecha</label>
+            <label for="costo">Costo</label>
             <input type="integer" class="form-control" name="costo" value=" {{old('costo')}}"  placeholder="Ingrese el costo">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+
+
       </form>
 </div>
 @endsection

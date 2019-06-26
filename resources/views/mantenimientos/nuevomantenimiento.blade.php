@@ -31,8 +31,8 @@
         <div class="form-group">
                 <label for="tipo">Tipo</label>
                 <select class="browser-default custom-select" name="tipo">
-                    <option value="1">entrada</option>
-                    <option value="0">salida</option>
+                    <option value="0">entrada</option>
+                    <option value="1">salida</option>
                 </select>
             </div>
         <div class="form-group">

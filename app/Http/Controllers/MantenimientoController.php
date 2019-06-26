@@ -49,13 +49,22 @@ class MantenimientoController extends Controller
         ->where('id', '=', $request->id)
         ->update('disponible'-> $request->tipo)
         ; */
-        $datos = [
+
+
+
+
+        /* $datos = [
             'id' => $request->id,
             'tipo' => $request->tipo
-        ];
+        ]; */
 
         mantenimiento::create($request->all());
-        return redirect()->route('mantenimiento.up', $datos);
+        $vehiculoAUsar = vehiculo::find($request->id_vehiculo);
+        $vehiculoAUsar->disponible = $request->tipo;
+        $vehiculoAUsar->save();
+        return redirect()->route('mantenimiento.index');
+        //dd($vehiculoAUsar);
+        /* return redirect()->route('mantenimiento.up', $datos); */
 
     }
 

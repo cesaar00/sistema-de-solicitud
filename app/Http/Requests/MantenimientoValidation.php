@@ -37,7 +37,7 @@ class MantenimientoValidation extends FormRequest
     public function messages()
     {
         return [
-            'id_vehiculo.required'=> 'Introduzca el Benefactor',
+            'id_vehiculo.required'=> 'Introduzca el Vehiculo',
             'descripcion.required'=> 'Introduzca una Descripcion del problema',
             'kilometraje.required'=> 'Introduzca el Kilometraje',
             'fecha.required'=> 'Introduzca la fecha del mantenimiento',

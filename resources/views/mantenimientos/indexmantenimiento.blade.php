@@ -4,10 +4,10 @@
         <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Nombre del Vehiculo</th>
+                    <th scope="col">Vehiculo</th>
                     <th scope="col">Descripcion</th>
                     <th scope="col">Kilometraje</th>
-                    <th scope="col">Tipo</th>
+                    <th scope="col">Acción</th>
                     <th scope="col">Fecha </th>
                     <th scope="col">Fecha Proxima</th>
                     <th scope="col">Observaciones</th>
@@ -19,10 +19,10 @@
                 <tbody>
                   @foreach ($mantenimientos as $mantenimiento)
                       <tr>
-                          <td> {{$mantenimiento->nombre_vehiculo}} </td>
+                          <td> {{$mantenimiento->vehiculo}} </td>
                           <td> {{$mantenimiento->descripcion}} </td>
                           <td> {{$mantenimiento->kilometraje}} </td>
-                          <td> {{$mantenimiento->tipo ? 'disponible': 'no disponible'}}</td>
+                          <td> {{$mantenimiento->tipo ? 'Salida': 'Entrada'}}</td>
                           <td> {{$mantenimiento->fecha}} </td>
                           <td> {{$mantenimiento->fecha_prox}} </td>
                           <td> {{$mantenimiento->observaciones}} </td>

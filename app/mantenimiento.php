@@ -8,15 +8,14 @@ class mantenimiento extends Model
 {
     //
     protected $fillable=[
-        'id',
-        'id_vehiculo',
+        'vehiculo',
         'descripcion',
         'kilometraje',
         'fecha',
         'fecha_prox',
         'observaciones',
         'costo',
-
+        'tipo'
 
     ];
 

@@ -13,7 +13,7 @@ class mantenimientoseeder extends Seeder
     {
         //
         DB::table('mantenimientos')->insert([
-            'id_vehiculo'=>1,
+            'vehiculo'=>'Ambulancia',
             'descripcion'=> 'Tiene una falla',
             'kilometraje'=> 14000,
             'fecha'=> '10-abril-2019',
@@ -22,7 +22,7 @@ class mantenimientoseeder extends Seeder
             'costo'=> 23000
         ]);
         DB::table('mantenimientos')->insert([
-            'id_vehiculo'=> 2,
+            'vehiculo'=> 'Teletona',
             'descripcion'=> 'Tiene una falla',
             'kilometraje'=> 14000,
             'fecha'=> '10-abril-2019',
@@ -31,7 +31,7 @@ class mantenimientoseeder extends Seeder
             'costo'=> 23000
         ]);
         DB::table('mantenimientos')->insert([
-            'id_vehiculo'=> 3,
+            'vehiculo'=> 'PickUP',
             'descripcion'=> 'Tiene una falla',
             'kilometraje'=> 14000,
             'fecha'=> '10-abril-2019',

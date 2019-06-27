@@ -17,10 +17,10 @@ class MantenimientoController extends Controller
      */
     public function index()
     {
-
-        $mantenimientos=DB::table('mantenimientos')
+        $mantenimientos = mantenimiento::get();
+        /* $mantenimientos=DB::table('mantenimientos')
         ->join('vehiculos','vehiculos.id','=','mantenimientos.id_vehiculo')
-        ->select('mantenimientos.*','vehiculos.nombre_vehiculo')->get();
+        ->select('mantenimientos.*','vehiculos.nombre_vehiculo')->get(); */
         return view('mantenimientos/indexmantenimiento', compact(['mantenimientos']));
     }
 
@@ -57,9 +57,20 @@ class MantenimientoController extends Controller
             'id' => $request->id,
             'tipo' => $request->tipo
         ]; */
-
-        mantenimiento::create($request->all());
         $vehiculoAUsar = vehiculo::find($request->id_vehiculo);
+
+
+        mantenimiento::create([
+            'vehiculo' => $vehiculoAUsar->nombre_vehiculo,
+            'descripcion' => $request->descripcion,
+            'kilometraje' => $request->kilometraje,
+            'fecha' => $request->fecha,
+            'fecha_prox' => $request->fecha_prox,
+            'observaciones' => $request->observaciones,
+            'costo' => $request->costo,
+            'tipo' => $request->tipo
+        ]);
+
         $vehiculoAUsar->disponible = $request->tipo;
         $vehiculoAUsar->save();
         return redirect()->route('mantenimiento.index');

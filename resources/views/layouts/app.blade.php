@@ -19,6 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -102,6 +103,7 @@
     <script src="{{asset('./js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
     <script src="{{asset('./js/plugins/sweetalert2.js')}}" ></script>
     <script src="{{asset('./js/plugins/tempusdominus-bootstrap-4.min.js')}}" ></script>
+    <script src="{{asset('./js/plugins/datatables.min.js')}}" ></script>
 
     {{-- Script para el delete modal --}}
     <script>
@@ -132,6 +134,19 @@
                 clear: 'fa fa-trash',
                 close: 'fa fa-remove'
             }
+        });
+    </script>
+
+    {{-- DataTable Library https://datatables.net/examples/styling/bootstrap4 --}}
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                paging: false,
+                select: true,
+                language: {
+                    info: "",
+                }
+            });
         });
     </script>
     

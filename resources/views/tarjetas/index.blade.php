@@ -1,14 +1,14 @@
 @extends('layouts/app')
 @section('content')
 <div class="container">
-        <table class="table">
+        <table id="example" class="table table-striped table-bordered">
                 <thead>
                   <tr>
                     <th scope="col">Numero de Tarjeta</th>
                     <th scope="col">Tipo Monedero</th>
                     <th scope="col">Saldo</th>
                     <th scope="col">Benefactor</th>
-                    <th scope="col"></th>
+                    <th scope="col">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>

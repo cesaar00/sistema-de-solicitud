@@ -1,6 +1,7 @@
-<td>
+
+        
         <a href="{{route($route.'.edit', $id)}}">Editar</a>
-   <td>
+
 
          <button class="btn btn-link"
              type="button"
@@ -8,8 +9,9 @@
              data-toggle="modal"
              data-target="#deleteModal"
              data-name="{{$name}}"
-             data-id="{{$id}}">Eliminar</button>
-     </td>
+             data-id="{{$id}}">Eliminar
+          </button>
+
      <div class="modal" id="deleteModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
               <div class="modal-content">

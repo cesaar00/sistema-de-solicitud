@@ -6,6 +6,8 @@ use App\RelacionTarjeta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\RelacionTarjetaValidation;
+use App\tarjeta;
+use App\vehiculo;
 
 class RelacionTarjetaController extends Controller
 {
@@ -16,11 +18,13 @@ class RelacionTarjetaController extends Controller
      */
     public function index()
     {
-        $relaciontarjetas= DB::table('relacion_tarjetas')
+        $relaciontarjetas = RelacionTarjeta::get();
+        
+        /* $relaciontarjetas= DB::table('relacion_tarjetas')
         ->join('tarjetas','tarjetas.id','=','relacion_tarjetas.id_tarjeta')
         ->join('vehiculos','vehiculos.id','=','relacion_tarjetas.id_vehiculo')
         ->select('relacion_tarjetas.id','relacion_tarjetas.monto','tarjetas.benefactor','relacion_tarjetas.tipo_gasolina','vehiculos.nombre_vehiculo',
-        'relacion_tarjetas.fecha_carga','relacion_tarjetas.litros')->get();
+        'relacion_tarjetas.fecha_carga','relacion_tarjetas.litros')->get(); */
         return view('relaciontarjetas/relaciontarjetasindex', compact('relaciontarjetas'));
     }
 
@@ -36,6 +40,36 @@ class RelacionTarjetaController extends Controller
         $vehiculos=DB::table('vehiculos')->get();
         return view('relaciontarjetas/nuevarelaciontarjeta',compact('tarjetas','vehiculos'));
 
+    }
+
+    public function aprobar(RelacionTarjeta $relaciontarjetum)
+    {
+        $tarjeta = tarjeta::find($relaciontarjetum->id_tarjeta);
+        $vehiculo = vehiculo::find($relaciontarjetum->id_vehiculo);
+
+        if ($tarjeta->saldo>=$relaciontarjetum->monto) {
+            if ($relaciontarjetum->litros <= $vehiculo->capacidad_tanque_gasolina) {
+                
+                $relaciontarjetum->aprobado = 1;
+                $relaciontarjetum->save();
+
+                tarjeta::where('id', $relaciontarjetum->id_tarjeta)->
+                    decrement('saldo', $relaciontarjetum->monto);
+
+                return redirect('/relaciontarjeta');
+
+            } else return redirect()->route('relaciontarjeta.index')->
+                with('error','Los litros que quiere ingresar superan la capacidad del Tanque');
+        } else return redirect()->route('relaciontarjeta.index')->
+                with('error','Saldo insuficiente');
+
+    }
+
+    public function cancelar(RelacionTarjeta $relaciontarjetum)
+    {
+        $relaciontarjetum->aprobado = 2;
+        $relaciontarjetum->save();
+        return redirect()->route('relaciontarjeta.index');
     }
 
     /**
@@ -55,8 +89,8 @@ class RelacionTarjetaController extends Controller
 
             if ($request->litros <= $max) {
                 relaciontarjeta::create($request->all());
-                DB::table('tarjetas')->where('id', '=', $request->id_tarjeta)
-                ->decrement('saldo', $request->monto);
+                /* DB::table('tarjetas')->where('id', '=', $request->id_tarjeta)
+                ->decrement('saldo', $request->monto); */
                 return redirect('/relaciontarjeta');
 
             } else{
@@ -112,10 +146,6 @@ class RelacionTarjetaController extends Controller
         return redirect('/relaciontarjeta');
     }
 
-    public function cancelar(RelacionTarjetaValidation $relaciontarjeta){
-
-
-    }
     /**
      * Remove the specified resource from storage.
      *

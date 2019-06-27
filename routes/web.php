@@ -22,8 +22,12 @@ Route::group(['middleware' => ['role:administrator']], function () {
     Route::resource('/relaciontarjeta','RelacionTarjetaController');
     Route::resource('/abono', 'AbonoController');
     Route::resource('/mantenimiento', 'MantenimientoController');
-    Route::put('/mantenimiento/up', 'MantenimientoController@up')->name('mantenimiento.up');
-    Route::put('relaciontarjetum/{id}/cancelar', 'RelacionTarjetaController@cancelar')->name('relaciontarjetum.cancelar');
+    Route::get('relaciontarjeta/{relaciontarjetum}/cancelar', 
+        'RelacionTarjetaController@cancelar')->
+        name('relaciontarjetum.cancelar');
+    Route::get('relaciontarjeta/{relaciontarjetum}/aprobar', 
+        'RelacionTarjetaController@aprobar')->
+        name('relaciontarjetum.aprobar');
 });
 
 Route::group(['middleware' => ['role:vizor|administrator']], function () {

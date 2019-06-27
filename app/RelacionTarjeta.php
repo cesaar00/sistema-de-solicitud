@@ -14,8 +14,8 @@ class RelacionTarjeta extends Model
         'tipo_gasolina',
         'id_vehiculo',
         'fecha_carga',
-        'litros'
-
+        'litros',
+        'aprobado'
 
     ];
 
@@ -24,4 +24,14 @@ class RelacionTarjeta extends Model
     ];
 
     public $timestamp= true;
+
+    public function vehiculo()
+    {
+        return $this->belongsTo(vehiculo::class, 'id_vehiculo');
+    }
+
+    public function tarjeta()
+    {
+        return $this->belongsTo(tarjeta::class, 'id_tarjeta');
+    }
 }

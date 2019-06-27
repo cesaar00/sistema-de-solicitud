@@ -19,6 +19,7 @@
                     <th scope="col">Fecha de Carga</th>
                     <th scope="col">Litros</th>
                     <th scope="col">Precio Unitario</th>
+                    <th scope="col">Estado</th>
 
                     <th scope="col"></th>
                   </tr>
@@ -27,18 +28,32 @@
                   @foreach ($relaciontarjetas as $relaciontarjeta)
                       <tr>
                           <td> {{$relaciontarjeta->monto}} </td>
-                          <td> {{$relaciontarjeta->benefactor}} </td>
+                          <td> {{$relaciontarjeta->tarjeta->benefactor}} </td>
                           <td> {{$relaciontarjeta->tipo_gasolina}} </td>
-                          <td> {{$relaciontarjeta->nombre_vehiculo}} </td>
+                          <td> {{$relaciontarjeta->vehiculo->nombre_vehiculo}} </td>
                           <td> {{$relaciontarjeta->fecha_carga}} </td>
                           <td> {{$relaciontarjeta->litros}} </td>
                           <td>
                                {{round($relaciontarjeta->monto / $relaciontarjeta->litros, 2)}}
                           </td>
                           <td>
+                            
                                 @role('administrator')
-                          <a href=" {{route('relaciontarjetum.cancelar',$relaciontarjeta->id)}}" class="btn btn-dark">Cancelar</a>
-                                @endrole
+                                @if ($relaciontarjeta->aprobado == 2)
+                                    Rechazada
+                                @elseif($relaciontarjeta->aprobado == 1)
+                                    Aprobada
+                                @else
+                                <a href=" {{route('relaciontarjetum.aprobar',$relaciontarjeta->id)}}" 
+                                    class="btn btn-primary btn-sm">
+                                    Aprobar
+                                  </a>
+                                  <a href=" {{route('relaciontarjetum.cancelar',$relaciontarjeta->id)}}" 
+                                      class="btn btn-dark btn-sm">
+                                      Cancelar
+                                    </a>     
+                                @endif
+                                @endrole 
                            {{--  @role('administrator')
 
                             @componente([

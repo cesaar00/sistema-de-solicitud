@@ -21,6 +21,7 @@ class CreateRelacionTarjetasTable extends Migration
             $table->bigInteger('id_vehiculo');
             $table->String('fecha_carga');
             $table->bigInteger('litros');
+            $table->smallInteger('aprobado')->default(0);
             $table->timestamps();
 
         });

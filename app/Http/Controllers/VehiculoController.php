@@ -88,7 +88,14 @@ class VehiculoController extends Controller
      */
     public function destroy(Request $vehiculo)
     {
-    DB::table('vehiculos')->where('id', '=',$vehiculo->id)->delete();
-        return redirect()->route('vehiculo.index')->with('info','registro eliminado');
+        $datos = DB::table('relacion_tarjetas')->where('id_vehiculo', $vehiculo->id)->get();
+        if(sizeof($datos) > 0) {
+            return redirect()->route('vehiculo.index')->with('infono','No se puede eliminar por que chinga tu madre');
+        }     
+        else {
+            DB::table('vehiculos')->where('id', '=',$vehiculo->id)->delete();
+            return redirect()->route('vehiculo.index')->with('info','registro eliminado');
+        }
+
     }
 }

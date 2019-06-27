@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\tarjeta;
 use Illuminate\Http\Request;
 use App\Http\Requests\TarjetaValidation;
+use Illuminate\Support\Facades\DB;
 
 class TarjetaController extends Controller
 {
@@ -84,7 +85,7 @@ class TarjetaController extends Controller
      * @param  \App\tarjeta  $tarjeta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tarjeta $tarjetum)
+    public function destroy(Request $tarjetum)
     {
         //
         DB::table('tarjetas')->where('id', '=',$tarjetum->id)->delete();

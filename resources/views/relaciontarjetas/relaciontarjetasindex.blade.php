@@ -9,11 +9,11 @@
         </a>
               </div>
         @endif
-        <table class="table">
+        <table id="example" class="table table-striped table-bordered">
                 <thead>
                   <tr>
                     <th scope="col">Monto</th>
-                    <th scope="col">Tarjeta</th>
+                    <th scope="col">Proveedor</th>
                     <th scope="col">Tipo de Gasolina</th>
                     <th scope="col">Vehiculo</th>
                     <th scope="col">Fecha de Carga</th>
@@ -21,7 +21,7 @@
                     <th scope="col">Precio Unitario</th>
                     <th scope="col">Estado</th>
 
-                    <th scope="col"></th>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -37,23 +37,23 @@
                                {{round($relaciontarjeta->monto / $relaciontarjeta->litros, 2)}}
                           </td>
                           <td>
-                            
+
                                 @role('administrator')
                                 @if ($relaciontarjeta->aprobado == 2)
                                     Rechazada
                                 @elseif($relaciontarjeta->aprobado == 1)
                                     Aprobada
                                 @else
-                                <a href=" {{route('relaciontarjetum.aprobar',$relaciontarjeta->id)}}" 
+                                <a href=" {{route('relaciontarjetum.aprobar',$relaciontarjeta->id)}}"
                                     class="btn btn-primary btn-sm">
                                     Aprobar
                                   </a>
-                                  <a href=" {{route('relaciontarjetum.cancelar',$relaciontarjeta->id)}}" 
+                                  <a href=" {{route('relaciontarjetum.cancelar',$relaciontarjeta->id)}}"
                                       class="btn btn-dark btn-sm">
                                       Cancelar
-                                    </a>     
+                                    </a>
                                 @endif
-                                @endrole 
+                                @endrole
                            {{--  @role('administrator')
 
                             @componente([

@@ -7,7 +7,7 @@
                     <th scope="col">Numero de Tarjeta</th>
                     <th scope="col">Tipo Monedero</th>
                     <th scope="col">Saldo</th>
-                    <th scope="col">Benefactor</th>
+                    <th scope="col">Proveedor</th>
                     <th scope="col">Acciones</th>
                   </tr>
                 </thead>

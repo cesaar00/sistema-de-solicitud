@@ -15,13 +15,14 @@
                     @endif
 
                     {{-- <a href="" class="btn ptn-primary pull-right">Nuevo usuario</a> --}}
-                    <table class="table table-hover table-striped">
+                    <table id="example" class="table table-striped table-bordered">
                         <thead>
                             <tr>
                                 <th width="20px">ID</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Correo electrónico</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Correo electrónico</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>

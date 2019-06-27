@@ -128,10 +128,10 @@ class MantenimientoController extends Controller
      * @param  \App\mantenimiento  $mantenimiento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(mantenimiento $mantenimiento)
+    public function destroy(Request $mantenimiento)
     {
         //
-        $mantenimiento->delete();
+        DB::table('mantenimientos')->where('id', '=',$mantenimiento->id)->delete();
         return redirect()->route('mantenimiento.index')->with('info','registro eliminado');
     }
 }

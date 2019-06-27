@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('/user');
+    return redirect('/login');
 });
 Route::group(['middleware' => ['role:administrator']], function () {
     Route::resource('/vehiculo', 'VehiculoController');
@@ -28,14 +28,16 @@ Route::group(['middleware' => ['role:administrator']], function () {
     Route::get('relaciontarjeta/{relaciontarjetum}/aprobar',
         'RelacionTarjetaController@aprobar')->
         name('relaciontarjetum.aprobar');
+        Route::resource('/user', 'UserController');
 });
 
 Route::group(['middleware' => ['role:vizor|administrator']], function () {
     Route::resource('/vehiculo', 'VehiculoController')->only(['index']);
     Route::resource('/tarjeta', 'TarjetaController')->only(['index']);
-    Route::resource('/relaciontarjeta','RelacionTarjetaController')->only(['index']);
+    Route::resource('/relaciontarjeta','RelacionTarjetaController')->only(['index', 'create', 'store']);
     Route::resource('/abono', 'AbonoController')->only(['index']);
     Route::resource('/mantenimiento', 'MantenimientoController')->only(['index']);
+    Route::resource('/user', 'UserController');
 });
 
 

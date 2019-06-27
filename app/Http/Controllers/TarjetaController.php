@@ -88,7 +88,13 @@ class TarjetaController extends Controller
     public function destroy(Request $tarjetum)
     {
         //
-        DB::table('tarjetas')->where('id', '=',$tarjetum->id)->delete();
-        return redirect()->route('tarjeta.index')->with('info','registro eliminado');;
+        $datos = DB::table('relacion_tarjetas')->where('id_tarjeta', $tarjetum->id)->get();
+        if(sizeof($datos) > 0) {
+            return redirect()->route('tarjeta.index')->with('infono','No se puede eliminar por que existe un activo pendiente');
+        }
+        else {
+            DB::table('tarjetas')->where('id', '=',$tarjetum->id)->delete();
+            return redirect()->route('tarjeta.index')->with('info','registro eliminado');
+        }
     }
 }

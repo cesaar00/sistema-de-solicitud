@@ -35,14 +35,24 @@
                     <option value="1">salida</option>
                 </select>
             </div>
-        <div class="form-group">
-            <label for="fecha">fecha </label>
-            <input type="text" class="form-control" name="fecha" value=" {{old('fecha')}}"  placeholder="Ingrese la fecha">
-        </div>
-        <div class="form-group">
-            <label for="fecha_prox">fecha Proxima</label>
-            <input type="text" class="form-control" name="fecha_prox" value=" {{old('fecha_prox')}}"  placeholder="Ingrese la fecha proxima">
-        </div>
+            <div class="form-group">
+                    <label for="id_vehiculo">Fecha Asignada al Mantenimiento</label>
+                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" name="fecha" />
+                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                    <label for="fecha_prox">Fecha del Proximo Mantenimiento</label>
+                <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" name="fecha_prox" />
+                    <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
         <div class="form-group">
             <label for="observaciones">Observaciones</label>
             <input type="text" class="form-control" name="observaciones" value=" {{old('observaciones')}}"  placeholder="Ingrese observaciones">

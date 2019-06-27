@@ -1,6 +1,22 @@
 @extends('layouts/app')
 @section('content')
 <div class="container">
+        @if ($message=Session::get('info'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <p>{{$message}}</p>
+        <a type="a" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </a>
+              </div>
+        @endif
+        @if ($message=Session::get('infono'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <p>{{$message}}</p>
+        <a type="a" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </a>
+              </div>
+        @endif
         <table id="example" class="table table-striped table-bordered">
                 <thead>
                   <tr>

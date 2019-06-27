@@ -9,6 +9,7 @@
         </a>
               </div>
         @endif
+
         <table id="example" class="table table-striped table-bordered">
                 <thead>
                   <tr>
@@ -30,7 +31,7 @@
                           <td> {{$relaciontarjeta->monto}} </td>
                           {{-- @if (empty($relaciontarjeta->tarjeta->benefactor))
                               <td>si</td>
-                          @else    
+                          @else
                               no
                           @endif --}}
 

@@ -18,7 +18,7 @@ class mantenimientoseeder extends Seeder
             'kilometraje'=> 14000,
             'fecha'=> '10-abril-2019',
             'fecha_prox'=> '10-mar-2020',
-            'observaciones'=> 'quedara todo bien',
+            'observaciones'=> 'detalle en manguera',
             'costo'=> 23000
         ]);
         DB::table('mantenimientos')->insert([
@@ -27,7 +27,7 @@ class mantenimientoseeder extends Seeder
             'kilometraje'=> 14000,
             'fecha'=> '10-abril-2019',
             'fecha_prox'=> '10-mar-2020',
-            'observaciones'=> 'quedara todo bien',
+            'observaciones'=> 'detalle en valvula',
             'costo'=> 23000
         ]);
         DB::table('mantenimientos')->insert([
@@ -36,7 +36,7 @@ class mantenimientoseeder extends Seeder
             'kilometraje'=> 14000,
             'fecha'=> '10-abril-2019',
             'fecha_prox'=> '10-mar-2020',
-            'observaciones'=> 'quedara todo bien',
+            'observaciones'=> 'detalle en manguera',
             'costo'=> 23000
         ]);
 

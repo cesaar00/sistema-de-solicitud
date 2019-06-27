@@ -18,7 +18,6 @@
                           <td> {{$tarjeta->tipo_monedero}} </td>
                           <td> {{$tarjeta->saldo}} </td>
                           <td> {{$tarjeta->benefactor}} </td>
-                          <td>
                                 @role('administrator')
 
                                 @componente([
@@ -28,7 +27,6 @@
                                 ])
                                 @endcomponente
                                 @endrole
-                            </td>
                       </tr>
                   @endforeach
                 </tbody>

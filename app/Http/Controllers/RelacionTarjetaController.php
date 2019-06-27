@@ -18,13 +18,9 @@ class RelacionTarjetaController extends Controller
      */
     public function index()
     {
-        $relaciontarjetas = RelacionTarjeta::get();
-        
-        /* $relaciontarjetas= DB::table('relacion_tarjetas')
-        ->join('tarjetas','tarjetas.id','=','relacion_tarjetas.id_tarjeta')
-        ->join('vehiculos','vehiculos.id','=','relacion_tarjetas.id_vehiculo')
-        ->select('relacion_tarjetas.id','relacion_tarjetas.monto','tarjetas.benefactor','relacion_tarjetas.tipo_gasolina','vehiculos.nombre_vehiculo',
-        'relacion_tarjetas.fecha_carga','relacion_tarjetas.litros')->get(); */
+        $historial = DB::table('relacion_tarjeta_historial');
+        $relaciontarjetas = RelacionTarjeta::union($historial)->get();
+
         return view('relaciontarjetas/relaciontarjetasindex', compact('relaciontarjetas'));
     }
 
@@ -50,11 +46,26 @@ class RelacionTarjetaController extends Controller
         if ($tarjeta->saldo>=$relaciontarjetum->monto) {
             if ($relaciontarjetum->litros <= $vehiculo->capacidad_tanque_gasolina) {
                 
-                $relaciontarjetum->aprobado = 1;
-                $relaciontarjetum->save();
+                /* $relaciontarjetum->aprobado = 1;
+                $relaciontarjetum->save(); */
 
                 tarjeta::where('id', $relaciontarjetum->id_tarjeta)->
                     decrement('saldo', $relaciontarjetum->monto);
+
+                $relaciontarjetum->delete();
+
+                $vehiculo = vehiculo::find($relaciontarjetum->id_vehiculo);
+                $tarjeta = tarjeta::find($relaciontarjetum->id_tarjeta);
+
+                DB::table('relacion_tarjeta_historial')->insert([
+                    'monto' => $relaciontarjetum->monto,
+                    'id_tarjeta' => $tarjeta->benefactor,
+                    'tipo_gasolina' => $relaciontarjetum->tipo_gasolina,
+                    'id_vehiculo' => $vehiculo->nombre_vehiculo,
+                    'fecha_carga' => $relaciontarjetum->fecha_carga,
+                    'litros' => $relaciontarjetum->litros,
+                    'aprobado' => 1
+                ]);
 
                 return redirect('/relaciontarjeta');
 
@@ -69,6 +80,22 @@ class RelacionTarjetaController extends Controller
     {
         $relaciontarjetum->aprobado = 2;
         $relaciontarjetum->save();
+
+        $relaciontarjetum->delete();
+
+        $vehiculo = vehiculo::find($relaciontarjetum->id_vehiculo);
+        $tarjeta = tarjeta::find($relaciontarjetum->id_tarjeta);
+
+        DB::table('relacion_tarjeta_historial')->insert([
+            'monto' => $relaciontarjetum->monto,
+            'id_tarjeta' => $tarjeta->benefactor,
+            'tipo_gasolina' => $relaciontarjetum->tipo_gasolina,
+            'id_vehiculo' => $vehiculo->nombre_vehiculo,
+            'fecha_carga' => $relaciontarjetum->fecha_carga,
+            'litros' => $relaciontarjetum->litros,
+            'aprobado' => 2
+        ]);
+                
         return redirect()->route('relaciontarjeta.index');
     }
 

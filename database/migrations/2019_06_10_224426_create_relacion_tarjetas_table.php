@@ -25,6 +25,19 @@ class CreateRelacionTarjetasTable extends Migration
             $table->timestamps();
 
         });
+
+        Schema::create('relacion_tarjeta_historial', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('monto');
+            $table->string('id_tarjeta');
+            $table->string('tipo_gasolina');
+            $table->string('id_vehiculo');
+            $table->string('fecha_carga');
+            $table->bigInteger('litros');
+            $table->smallInteger('aprobado')->default(0);
+            $table->timestamps();
+
+        });
     }
 
     /**
@@ -35,5 +48,6 @@ class CreateRelacionTarjetasTable extends Migration
     public function down()
     {
         Schema::dropIfExists('relacion_tarjetas');
+        Schema::dropIfExists('relacion_tarjeta_historial');
     }
 }

@@ -28,9 +28,15 @@
                   @foreach ($relaciontarjetas as $relaciontarjeta)
                       <tr>
                           <td> {{$relaciontarjeta->monto}} </td>
-                          <td> {{$relaciontarjeta->tarjeta->benefactor}} </td>
+                          {{-- @if (empty($relaciontarjeta->tarjeta->benefactor))
+                              <td>si</td>
+                          @else    
+                              no
+                          @endif --}}
+
+                          <td> {{$relaciontarjeta->tarjeta ? $relaciontarjeta->tarjeta->benefactor : $relaciontarjeta->id_tarjeta }} </td>
                           <td> {{$relaciontarjeta->tipo_gasolina}} </td>
-                          <td> {{$relaciontarjeta->vehiculo->nombre_vehiculo}} </td>
+                          <td> {{$relaciontarjeta->vehiculo ? $relaciontarjeta->vehiculo->nombre_vehiculo : $relaciontarjeta->id_vehiculo }} </td> </td>
                           <td> {{$relaciontarjeta->fecha_carga}} </td>
                           <td> {{$relaciontarjeta->litros}} </td>
                           <td>

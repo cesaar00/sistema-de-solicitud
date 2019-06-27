@@ -20,7 +20,9 @@
                     <th scope="col">Fecha de Carga</th>
                     <th scope="col">Litros</th>
                     <th scope="col">Precio Unitario</th>
+                    @role('administrator')
                     <th scope="col">Estado</th>
+                    @endrole
 
 
                   </tr>
@@ -43,13 +45,12 @@
                           <td>
                                {{round($relaciontarjeta->monto / $relaciontarjeta->litros, 2)}}
                           </td>
+                          @role('administrator')
                           <td>
-
-                                @role('administrator')
-                                @if ($relaciontarjeta->aprobado == 2)
-                                    Rechazada
-                                @elseif($relaciontarjeta->aprobado == 1)
-                                    Aprobada
+                          @if ($relaciontarjeta->aprobado == 2)
+                          Rechazada
+                          @elseif($relaciontarjeta->aprobado == 1)
+                          Aprobada
                                 @else
                                 <a href=" {{route('relaciontarjetum.aprobar',$relaciontarjeta->id)}}"
                                     class="btn btn-primary btn-sm">
@@ -60,16 +61,8 @@
                                       Cancelar
                                     </a>
                                 @endif
+                            </td>
                                 @endrole
-                           {{--  @role('administrator')
-
-                            @componente([
-                                'route'=>'relaciontarjeta',
-                                'id'=>$relaciontarjeta->id,
-                                'name'=> $relaciontarjeta->nombre_vehiculo,
-                            ])
-                            @endcomponente
-                            @endrole --}}</td>
                       </tr>
                   @endforeach
                 </tbody>

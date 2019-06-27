@@ -12,7 +12,6 @@ class abono extends Model
         'folio',
         'monto',
         'fecha',
-        'estado',
         'id_tarjeta',
 
 

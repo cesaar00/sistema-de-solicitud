@@ -1,15 +1,13 @@
 @extends('layouts/app')
 @section('content')
 <div class="container">
-        <table class="table">
+        <table id="example" class="table table-striped table-bordered">
                 <thead>
                   <tr>
                     <th scope="col">Folio</th>
                     <th scope="col">Monto</th>
                     <th scope="col">Fecha</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Benefactor</th>
-                    <th scope="col"></th>
+                    <th scope="col">Proveedor</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -18,7 +16,6 @@
                           <td> {{$abono->folio}} </td>
                           <td> {{$abono->monto}} </td>
                           <td> {{$abono->fecha}} </td>
-                          <td> {{$abono->estado}} </td>
                           <td> {{$abono->benefactor}} </td>
                           {{-- <td>
                               <form action="{{route('abono.destroy', $abono->id)}}" method="post">
@@ -30,7 +27,9 @@
                   @endforeach
                 </tbody>
               </table>
+              @role('administrator')
               <a href=" {{route('abono.create')}} " class="btn btn-primary">Crear</a>
+              @endrole
               {{-- {{$abonos->links()}} --}}
 </div>
 @endsection

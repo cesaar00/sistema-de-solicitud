@@ -21,15 +21,20 @@
           <input type="integer" class="form-control" name="monto" value=" {{old('monto')}}"  placeholder="Ingrese el Monto">
         </div>
         <div class="form-group">
-            <label for="fecha">Fecha</label>
-            <input type="text" class="form-control" name="fecha"   value=" {{old('fecha')}}"  placeholder="Ingrese fecha del Abono">
+                <label for="id_vehiculo">Fecha </label>
+            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" name="fecha" />
+                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label for="estado">Estado</label>
             <input type="text" class="form-control" name="estado" value=" {{old('estado')}}"  placeholder="Ingrese el estado">
-        </div>
+        </div> --}}
         <div class="form-group">
-                <label for="id_tarjeta">Seleccione Benefactor</label>
+                <label for="id_tarjeta">Seleccione Proveedor</label>
                 <select class="browser-default custom-select" name="id_tarjeta">
                     @foreach ($tarjetas as $tarjeta)
                     <option value="{{$tarjeta->id}}">{{$tarjeta->benefactor}}</option>

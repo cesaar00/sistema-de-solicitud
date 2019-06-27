@@ -37,7 +37,7 @@ Route::group(['middleware' => ['role:vizor|administrator']], function () {
     Route::resource('/relaciontarjeta','RelacionTarjetaController')->only(['index', 'create', 'store']);
     Route::resource('/abono', 'AbonoController')->only(['index']);
     Route::resource('/mantenimiento', 'MantenimientoController')->only(['index']);
-    Route::resource('/user', 'UserController');
+    Route::resource('/user', 'UserController')->only(['index']);
 });
 
 

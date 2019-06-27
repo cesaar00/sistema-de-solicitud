@@ -29,7 +29,9 @@
                     <th scope="col">Tipo de Gasolina</th>
                     <th scope="col">Modelo del Automovil</th>
                     <th scope="col">Descripcion del Automovil</th>
-                    <th scope="col">asdsad</th>
+                    @role ('administrator')
+                    <th scope="col">Acciones</th>
+                    @endrole
                   </tr>
                 </thead>
                 <tbody>
@@ -58,8 +60,10 @@
                     @endforeach
                 </tbody>
               </table>
+              @role ('administrator')
               <a href=" {{route('vehiculo.create')}} " class="btn btn-primary">Crear</a>
               {{$vehiculos->links()}}
+              @endrole
 </div>
 
 @endsection

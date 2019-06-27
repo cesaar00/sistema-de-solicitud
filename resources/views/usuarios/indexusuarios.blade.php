@@ -22,7 +22,9 @@
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Apellido</th>
                                 <th scope="col">Correo electrónico</th>
+                                @role ('administrator')
                                 <th scope="col">Acciones</th>
+                                @endrole
                             </tr>
                         </thead>
                         <tbody>
@@ -45,7 +47,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @role ('administrator')
                     <a href=" {{route('user.create')}} " class="btn btn-primary">Crear</a>
+                    @endrole
                 </div>
                     {!! $users->render() !!}
                 </div>

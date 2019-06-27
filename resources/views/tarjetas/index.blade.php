@@ -24,7 +24,9 @@
                     <th scope="col">Tipo Monedero</th>
                     <th scope="col">Saldo</th>
                     <th scope="col">Proveedor</th>
+                    @role ('administrator')
                     <th scope="col">Acciones</th>
+                    @endrole
                   </tr>
                 </thead>
                 <tbody>
@@ -47,7 +49,9 @@
                   @endforeach
                 </tbody>
               </table>
+              @role ('administrator')
               <a href=" {{route('tarjeta.create')}} " class="btn btn-primary">Crear</a>
               {{$tarjetas->links()}}
+              @endrole
 </div>
 @endsection

@@ -12,7 +12,9 @@
                     <th scope="col">Fecha Proxima</th>
                     <th scope="col">Observaciones</th>
                     <th scope="col">Costo</th>
+                    @role ('administrator')
                     <th scope="col">Acciones</th>
+                    @endrole
                   </tr>
                 </thead>
                 <tbody>
@@ -40,7 +42,9 @@
                   @endforeach
                 </tbody>
               </table>
+             @role('administrator')
               <a href=" {{route('mantenimiento.create')}} " class="btn btn-primary">Crear</a>
              {{--  {{$mantenimientos->links()}} --}}
+             @endrole
 </div>
 @endsection

@@ -19,7 +19,7 @@ class AbonoController extends Controller
         //
        $abonos=DB::table('abonos')
        ->join ('tarjetas','tarjetas.id','=','abonos.id_tarjeta')
-       ->select('abonos.id','abonos.folio','abonos.monto','abonos.fecha','abonos.estado','tarjetas.benefactor')->get();
+       ->select('abonos.id','abonos.folio','abonos.monto','abonos.fecha','tarjetas.benefactor')->get();
 
        ;
         return view('abonos/indexabonos', compact('abonos'));

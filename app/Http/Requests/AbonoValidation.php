@@ -28,7 +28,6 @@ class AbonoValidation extends FormRequest
             'folio'=> 'required|max:255',
             'monto'=> 'required|max:255',
             'fecha'=>'required|max:255',
-            'estado'=> 'required|max:255',
             'id_tarjeta'=> 'required|max:255',
         ];
     }
@@ -38,7 +37,6 @@ class AbonoValidation extends FormRequest
             'folio.required'=> 'Introduzca el Folio',
             'monto.required'=> 'Introduzca Monto Cargado',
             'fecha.required'=> 'Introduzca la Fecha del abono',
-            'estado.required'=> 'Introduzca el estado',
             'id_tarjeta.required'=> 'Introduzca el benefactor',
 
 

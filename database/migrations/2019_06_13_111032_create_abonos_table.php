@@ -18,7 +18,6 @@ class CreateAbonosTable extends Migration
             $table->bigInteger('folio');
             $table->bigInteger('monto');
             $table->string('fecha',191);
-            $table->String('estado',191);
             $table->bigInteger('id_tarjeta');
 
             $table->timestamps();

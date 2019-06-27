@@ -6,23 +6,20 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Sistema de solicitudes') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" ></script>
-    <script>src="js/jquery.min.js"</script>
-    <script src="js/sweetalert2.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+        rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+        rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -96,18 +93,17 @@
         </main>
     </div>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
-{{--     <script src="sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="sweetalert2.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script> --}}
+    {{-- Scripts --}}
     <script src="{{asset('./js/core/jquery.min.js')}}"></script>
     <script src="{{asset('./js/core/popper.min.js')}}"></script>
+    <script src="{{asset('./js/core/moment.js')}}"></script>
+    <script src="{{asset('./js/core/moment-es.js')}}"></script>
     <script src="{{asset('./js/core/bootstrap-material-design.min.js')}}"></script>
     <script src="{{asset('./js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
-    <script src="{{ asset('js/sweetalert2.js') }}" ></script>
+    <script src="{{asset('./js/plugins/sweetalert2.js')}}" ></script>
+    <script src="{{asset('./js/plugins/tempusdominus-bootstrap-4.min.js')}}" ></script>
+
+    {{-- Script para el delete modal --}}
     <script>
 
         $('#deleteModal').on('show.bs.modal', function (event) {
@@ -120,5 +116,24 @@
          modal.find('.modal-footer #deleteId').val(id)
         })
     </script>
+
+    {{-- Para las fechas --}}
+    <script>
+        $('#datetimepicker1').datetimepicker({
+            format: 'L',
+            icons: {
+                time: "fa fa-clock-o",
+                date: "fa fa-calendar",
+                up: "fa fa-chevron-up",
+                down: "fa fa-chevron-down",
+                previous: 'fa fa-chevron-left',
+                next: 'fa fa-chevron-right',
+                today: 'fa fa-screenshot',
+                clear: 'fa fa-trash',
+                close: 'fa fa-remove'
+            }
+        });
+    </script>
+    
 </body>
 </html>

@@ -46,10 +46,18 @@
                     @endforeach
                 </select>
             </div>
-        <div class="form-group">
-            <label for="fecha_carga">Fecha de Carga</label>
-            <input type="integer" class="form-control" name="fecha_carga" value=" {{old('fecha_carga')}}"  placeholder="Ingrese la Fecha de Carga">
-          </div>
+
+            <div class="form-group">
+                    <label for="id_vehiculo">Fecha de carga</label>
+                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" name="fecha_carga" />
+                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
+
+
     <div class="form-group">
             <div class="form-group">
                     <label for="litros">Litros</label>

@@ -108,6 +108,8 @@ class MantenimientoController extends Controller
     public function edit(mantenimiento $mantenimiento)
     {
         //
+        $vehiculos= vehiculo::get();
+        return view('mantenimientos/editarmantenimiento',compact(['mantenimiento','vehiculos']));
     }
 
     /**
@@ -117,8 +119,11 @@ class MantenimientoController extends Controller
      * @param  \App\mantenimiento  $mantenimiento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, mantenimiento $mantenimiento)
+    public function update(MantenimientoValidation $request, mantenimiento $mantenimiento)
     {
+
+        $mantenimiento->update($request->all());
+        return redirect('/mantenimiento');
         //
     }
 

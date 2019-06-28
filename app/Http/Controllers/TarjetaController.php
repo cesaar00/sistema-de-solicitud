@@ -41,7 +41,17 @@ class TarjetaController extends Controller
     public function store(TarjetaValidation $request)
     {
         //
-        tarjeta::create($request->all());
+        $p1 = substr($request->numero_tarjeta, 0,4);
+        $p2 = substr($request->numero_tarjeta, 4,4);
+        $p3 = substr($request->numero_tarjeta, 8,4);
+        $p4 = substr($request->numero_tarjeta, 12,4);
+        tarjeta::create([
+            'numero_tarjeta'=> $p1 . '-'. $p2 . '-'. $p3 . '-'. $p4,
+            'tipo_monedero' => $request->tipo_monedero,
+            'saldo' => $request->saldo,
+            'benefactor' => $request->benefactor,
+
+        ]);
         return redirect('/tarjeta');
     }
 
@@ -62,9 +72,10 @@ class TarjetaController extends Controller
      * @param  \App\tarjeta  $tarjeta
      * @return \Illuminate\Http\Response
      */
-    public function edit(tarjeta $tarjeta)
+    public function edit(tarjeta $tarjetum)
     {
         //
+        return view('tarjetas/editartarjeta',compact('tarjetum'));
     }
 
     /**
@@ -77,6 +88,8 @@ class TarjetaController extends Controller
     public function update(TarjetaValidation $request, tarjeta $tarjetum)
     {
         //
+        $tarjetum->update($request->all());
+        return redirect('/tarjeta');
     }
 
     /**

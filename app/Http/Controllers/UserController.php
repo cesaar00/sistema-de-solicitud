@@ -16,8 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-
-        $users = User::orderBy('id', 'DESC')->paginate(3);
+        $users = User::where('email', '<>', 'admin_prueba@gmail.com')->paginate(4);
+       /*  $users = User::orderBy('id', 'DESC')->paginate(3); */
         return view('usuarios/indexusuarios', compact('users'));
     }
 

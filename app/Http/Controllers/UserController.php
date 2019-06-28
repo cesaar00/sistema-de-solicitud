@@ -99,11 +99,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $user)
     {
         //
-        $user = User::find($id);
-        $user->delete();
-        return back()->with('info', 'El usuario ha sido eliminado');
+        /* $user = User::find($id); */
+        /* $user->delete(); */
+        /* return back()->with('info', 'El usuario ha sido eliminado'); */
+        DB::table('users')->where('id', '=',$user->id)->delete();
+        return redirect()->route('user.index')->with('info','registro eliminado');
     }
 }

@@ -34,10 +34,14 @@
                 </div>
 
 
-        <div class="form-group">
-            <label for="tipo_gasolina">Tipo de Gasolina</label>
-            <input type="integer" class="form-control" name="tipo_gasolina"   value=" {{old('tipo_gasolina')}}"  placeholder="Ingrese tipo Gasolina ">
-        </div>
+                <div class="form-group">
+                        <label for="tipo_gasolina">Seleccione Tipo Gasolina</label>
+                        <select class="browser-default custom-select" name="tipo_gasolina">
+                            <option value="Magna">Magna</option>
+                            <option value="Premium">Premium</option>
+                            <option value="Diesel">Diesel</option>
+                        </select>
+                </div>
             <div class="form-group">
                 <label for="id_vehiculo">Seleccione Vehiculo</label>
                 <select class="browser-default custom-select" name="id_vehiculo">

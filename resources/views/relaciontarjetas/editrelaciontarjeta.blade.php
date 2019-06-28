@@ -38,7 +38,7 @@
             <input type="integer" class="form-control" name="litros" value=" {{$relaciontarjetum->litros}}"  placeholder="Ingrese los Litros">
         </div>
 
-        <button type="submit" class="btn btn-primary">Confirmar</button>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
       </form>
 </div>
 @endsection

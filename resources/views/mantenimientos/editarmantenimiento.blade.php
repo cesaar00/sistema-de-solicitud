@@ -62,7 +62,7 @@
             <label for="costo">Costo</label>
             <input type="integer" class="form-control" name="costo" value=" {{$mantenimiento->costo}}"  placeholder="Ingrese el costo">
         </div>
-        <button type="submit" class="btn btn-primary">Cargar</button>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
 
 
       </form>

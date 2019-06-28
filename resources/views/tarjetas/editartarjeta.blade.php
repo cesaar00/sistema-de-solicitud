@@ -29,7 +29,7 @@
             <label for="benefactor">Benefactor</label>
             <input type="text" class="form-control" name="benefactor" value=" {{$tarjetum->benefactor}}"  placeholder="Ingrese el Benefactor">
         </div>
-        <button type="submit" class="btn btn-primary">Cargar</button>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
       </form>
 </div>
 @endsection

@@ -31,7 +31,7 @@
             <label for="benefactor">Proveedor</label>
             <input type="text" class="form-control" name="benefactor" value=" {{old('benefactor')}}"  placeholder="Ingrese el Benefactor">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
       </form>
 </div>
 @endsection

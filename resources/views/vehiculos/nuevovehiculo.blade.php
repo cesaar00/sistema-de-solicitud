@@ -40,7 +40,7 @@
                 <label for="descripcion_vehiculo">Descripcion del Vehiculo</label>
                 <textarea class="form-control" name="descripcion_vehiculo" rows="3"></textarea>
               </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
       </form>
 </div>
 @endsection

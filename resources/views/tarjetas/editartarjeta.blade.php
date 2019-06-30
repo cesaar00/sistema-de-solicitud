@@ -26,7 +26,7 @@
             <input type="integer" class="form-control" name="saldo"   value=" {{$tarjetum->saldo}}"  placeholder="Ingrese Saldo de la Tarjeta">
         </div>
         <div class="form-group">
-            <label for="benefactor">Benefactor</label>
+            <label for="benefactor">Proveedor</label>
             <input type="text" class="form-control" name="benefactor" value=" {{$tarjetum->benefactor}}"  placeholder="Ingrese el Benefactor">
         </div>
         <button type="submit" class="btn btn-primary">Guardar Cambios</button>

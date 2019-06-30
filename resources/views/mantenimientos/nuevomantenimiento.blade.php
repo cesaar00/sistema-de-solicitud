@@ -53,10 +53,16 @@
                     </div>
                 </div>
             </div>
-        <div class="form-group">
-            <label for="observaciones">Observaciones</label>
-            <input type="text" class="form-control" name="observaciones" value=" {{old('observaciones')}}"  placeholder="Ingrese observaciones">
-        </div>
+
+            <div class="form-group">
+                <label for="agencia">Agencia</label>
+                <input type="text" class="form-control" name="agencia" value=" {{old('agencia')}}"  placeholder="Ingrese una Descripcion">
+              </div>
+
+            <div class="form-group">
+                <label for="observaciones">Observaciones</label>
+                <input type="text" class="form-control" name="observaciones" value=" {{old('observaciones')}}"  placeholder="Ingrese observaciones">
+            </div>
         <div class="form-group">
             <label for="costo">Costo</label>
             <input type="integer" class="form-control" name="costo" value=" {{old('costo')}}"  placeholder="Ingrese el costo">

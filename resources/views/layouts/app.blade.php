@@ -46,10 +46,10 @@
                             <a class="nav-link" href="{{route('mantenimiento.index')}}">Mantenimiento <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item {{request()->is ('abono*') ? 'active' : ''}}">
-                            <a class="nav-link" href="{{route('abono.index')}}">Abono <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{route('abono.index')}}">Cargo a Tarjeta <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item {{request()->is ('relaciontarjeta*') ? 'active' : ''}}">
-                            <a class="nav-link" href="{{route('relaciontarjeta.index')}}">Tarjeta <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{route('relaciontarjeta.index')}}">Descuento a Tarjeta <span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
 

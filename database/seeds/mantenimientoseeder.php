@@ -18,6 +18,7 @@ class mantenimientoseeder extends Seeder
             'kilometraje'=> 14000,
             'fecha'=> '10-abril-2019',
             'fecha_prox'=> '10-mar-2020',
+            'agencia'=> 'chevrolet',
             'observaciones'=> 'detalle en manguera',
             'costo'=> 23000
         ]);
@@ -27,6 +28,7 @@ class mantenimientoseeder extends Seeder
             'kilometraje'=> 14000,
             'fecha'=> '10-abril-2019',
             'fecha_prox'=> '10-mar-2020',
+            'agencia'=> 'chevrolet',
             'observaciones'=> 'detalle en valvula',
             'costo'=> 23000
         ]);
@@ -36,6 +38,7 @@ class mantenimientoseeder extends Seeder
             'kilometraje'=> 14000,
             'fecha'=> '10-abril-2019',
             'fecha_prox'=> '10-mar-2020',
+            'agencia'=> 'chevrolet',
             'observaciones'=> 'detalle en manguera',
             'costo'=> 23000
         ]);

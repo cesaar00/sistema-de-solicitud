@@ -10,6 +10,7 @@
                     <th scope="col">Acción</th>
                     <th scope="col">Fecha </th>
                     <th scope="col">Fecha Proxima</th>
+                    <th scope="col">Agencia</th>
                     <th scope="col">Observaciones</th>
                     <th scope="col">Costo</th>
                     @role ('administrator')
@@ -26,6 +27,7 @@
                           <td> {{$mantenimiento->tipo ? 'Salida': 'Entrada'}}</td>
                           <td> {{$mantenimiento->fecha}} </td>
                           <td> {{$mantenimiento->fecha_prox}} </td>
+                          <td> {{$mantenimiento->agencia}} </td>
                           <td> {{$mantenimiento->observaciones}} </td>
                           <td> {{$mantenimiento->costo}} </td>
 

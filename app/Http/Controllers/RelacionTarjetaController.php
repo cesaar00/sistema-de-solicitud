@@ -45,7 +45,7 @@ class RelacionTarjetaController extends Controller
 
         if ($tarjeta->saldo>=$relaciontarjetum->monto) {
             if ($relaciontarjetum->litros <= $vehiculo->capacidad_tanque_gasolina) {
-                
+
                 /* $relaciontarjetum->aprobado = 1;
                 $relaciontarjetum->save(); */
 
@@ -95,7 +95,7 @@ class RelacionTarjetaController extends Controller
             'litros' => $relaciontarjetum->litros,
             'aprobado' => 2
         ]);
-                
+
         return redirect()->route('relaciontarjeta.index');
     }
 
@@ -108,6 +108,8 @@ class RelacionTarjetaController extends Controller
     public function store(RelacionTarjetaValidation $request)
     {
         //
+        $tipogasolina= DB::table('vehiculos')->where('id', '=', $request->id_vehiculo)
+        ->latest()->value('tipo_gasolina');
         $saldo = DB::table('tarjetas')->
         where('id', '=', $request->id_tarjeta)->latest()->value('saldo');
         $max = DB::table('vehiculos')->
@@ -115,10 +117,15 @@ class RelacionTarjetaController extends Controller
         if ($saldo>=$request->monto) {
 
             if ($request->litros <= $max) {
-                relaciontarjeta::create($request->all());
-                /* DB::table('tarjetas')->where('id', '=', $request->id_tarjeta)
-                ->decrement('saldo', $request->monto); */
-                return redirect('/relaciontarjeta');
+                if ($request->tipo_gasolina == $tipogasolina) {
+
+                    relaciontarjeta::create($request->all());
+                    /* DB::table('tarjetas')->where('id', '=', $request->id_tarjeta)
+                    ->decrement('saldo', $request->monto); */
+                    return redirect('/relaciontarjeta');
+                }else{
+                    return redirect()->route('relaciontarjeta.create')->with('detail','El tipo de gasolina no coincide ');
+                }
 
             } else{
                 return redirect()->route('relaciontarjeta.create')->with('error','Los litros que quiere ingresar superan la capacidad del Tanque');

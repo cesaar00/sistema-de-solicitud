@@ -54,6 +54,12 @@
                     </div>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label for="observaciones">Agencia</label>
+                <input type="text" class="form-control" name="agencia" value=" {{$mantenimiento->agencia}}"  placeholder="Ingrese observaciones">
+            </div>
+
         <div class="form-group">
             <label for="observaciones">Observaciones</label>
             <input type="text" class="form-control" name="observaciones" value=" {{$mantenimiento->observaciones}}"  placeholder="Ingrese observaciones">

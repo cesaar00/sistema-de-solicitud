@@ -13,6 +13,7 @@ class mantenimiento extends Model
         'kilometraje',
         'fecha',
         'fecha_prox',
+        'agencia',
         'observaciones',
         'costo',
         'tipo'

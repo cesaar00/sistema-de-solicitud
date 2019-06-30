@@ -21,9 +21,13 @@
                 <label for="capacidad_tanque_gasolina">Capacidad del  Tanque del Vehiculo</label>
                 <input type="integer" class="form-control" name="capacidad_tanque_gasolina" value=" {{$vehiculo->capacidad_tanque_gasolina}}"  placeholder="Ingrese la Capacidad del Tanque de Gasolina">
               </div>
-        <div class="form-group">
-          <label for="tipo_gasolina">Tipo de Gasolina</label>
-          <input type="text" class="form-control" name="tipo_gasolina" value=" {{$vehiculo->tipo_gasolina}}"  placeholder="Ingrese el tipo de Gasolina">
+              <div class="form-group">
+                <label for="tipo_gasolina">Seleccione Tipo Gasolina</label>
+                <select class="browser-default custom-select" name="tipo_gasolina">
+                    <option value="Magna">Magna</option>
+                    <option value="Premium">Premium</option>
+                    <option value="Diesel">Diesel</option>
+                </select>
         </div>
         <div class="form-group">
             <label for="modelo_vehiculo">Modelo del Vehiculo</label>

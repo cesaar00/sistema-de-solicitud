@@ -20,6 +20,7 @@ class CreateMantenimientosTable extends Migration
             $table->bigInteger('kilometraje');
             $table->string('fecha',191);
             $table->string('fecha_prox',191);
+            $table->string('agencia',191);
             $table->string('observaciones',191);
             $table->string('costo');
             $table->boolean('tipo')->default(true);

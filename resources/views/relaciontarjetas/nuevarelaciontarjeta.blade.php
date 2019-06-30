@@ -17,7 +17,15 @@
         <span aria-hidden="true">&times;</span>
          </button>
         </div>
-        @endif
+    @endif
+    @if ($message=Session::get('detail'))
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+         <p>{{$message}}</p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+         </button>
+        </div>
+    @endif
     <form method ="POST" action=" {{route('relaciontarjeta.store')}} ">
         @csrf
         <div class="form-group">
@@ -25,7 +33,7 @@
                 <input type="integer" class="form-control" name="monto" value=" {{old('monto')}}"  placeholder="Ingrese el Monto Cargado">
               </div>
                 <div class="form-group">
-                    <label for="id_tarjeta">Seleccione Benefactor</label>
+                    <label for="id_tarjeta">Seleccione Proveedor</label>
                     <select class="browser-default custom-select" name="id_tarjeta">
                         @foreach ($tarjetas as $tarjeta)
                         <option value="{{$tarjeta->id}}">{{$tarjeta->benefactor}}</option>

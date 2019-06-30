@@ -66,6 +66,7 @@ class MantenimientoController extends Controller
             'kilometraje' => $request->kilometraje,
             'fecha' => $request->fecha,
             'fecha_prox' => $request->fecha_prox,
+            'agencia'=> $request->agencia,
             'observaciones' => $request->observaciones,
             'costo' => $request->costo,
             'tipo' => $request->tipo

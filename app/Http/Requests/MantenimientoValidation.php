@@ -30,6 +30,7 @@ class MantenimientoValidation extends FormRequest
             'kilometraje'=>'required|max:255',
             'fecha'=> 'required|max:255',
             'fecha_prox'=> 'required|max:255',
+            'agencia'=> 'required|max:255',
             'observaciones'=> 'required|max:255',
             'costo'=> 'required|max:255',
         ];
@@ -42,6 +43,7 @@ class MantenimientoValidation extends FormRequest
             'kilometraje.required'=> 'Introduzca el Kilometraje',
             'fecha.required'=> 'Introduzca la fecha del mantenimiento',
             'fecha_prox.required'=> 'Introduzca la fecha del proximo mantenimiento',
+            'agencia.required'=> 'Introduzca la agencia',
             'observaciones.required'=> 'Introduzca las observaciones',
             'costo.required'=> 'Introduzca el costo',
 

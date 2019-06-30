@@ -16,8 +16,8 @@ class mantenimientoseeder extends Seeder
             'vehiculo'=>'Ambulancia',
             'descripcion'=> 'Tiene una falla',
             'kilometraje'=> 14000,
-            'fecha'=> '10-abril-2019',
-            'fecha_prox'=> '10-mar-2020',
+            'fecha'=> Date::createFromDate('2019/04/10'),
+            'fecha_prox'=> Date::createFromDate('2020/04/10'),
             'agencia'=> 'chevrolet',
             'observaciones'=> 'detalle en manguera',
             'costo'=> 23000
@@ -26,8 +26,8 @@ class mantenimientoseeder extends Seeder
             'vehiculo'=> 'Teletona',
             'descripcion'=> 'Tiene una falla',
             'kilometraje'=> 14000,
-            'fecha'=> '10-abril-2019',
-            'fecha_prox'=> '10-mar-2020',
+            'fecha'=> Date::createFromDate('2019/04/10'),
+            'fecha_prox'=> Date::createFromDate('2020/04/10'),
             'agencia'=> 'chevrolet',
             'observaciones'=> 'detalle en valvula',
             'costo'=> 23000
@@ -36,8 +36,8 @@ class mantenimientoseeder extends Seeder
             'vehiculo'=> 'PickUP',
             'descripcion'=> 'Tiene una falla',
             'kilometraje'=> 14000,
-            'fecha'=> '10-abril-2019',
-            'fecha_prox'=> '10-mar-2020',
+            'fecha'=> Date::createFromDate('2019/04/10'),
+            'fecha_prox'=> Date::createFromDate('2020/04/10'),
             'agencia'=> 'chevrolet',
             'observaciones'=> 'detalle en manguera',
             'costo'=> 23000

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\MantenimientoValidation;
 use Illuminate\Support\Facades\DB;
 use App\vehiculo;
+use Illuminate\Support\Facades\Date;
 
 class MantenimientoController extends Controller
 {
@@ -44,19 +45,13 @@ class MantenimientoController extends Controller
      */
     public function store(MantenimientoValidation $request)
     {
-        //dd($request->all());
-        /* DB::table('vehiculos')
-        ->where('id', '=', $request->id)
-        ->update('disponible'-> $request->tipo)
-        ; */
+        $fecha = Date::createFromFormat('d/m/Y', $request->fecha);
+        $fecha_prox = Date::createFromFormat('d/m/Y', $request->fecha_prox);
 
+        if($fecha->gt($fecha_prox)) {
+            return redirect()->route('mantenimiento.create')->with('error','La fecha del mantenimiento próximo no debe ser menor a la fecha del mantenimiento actual');
+        }
 
-
-
-        /* $datos = [
-            'id' => $request->id,
-            'tipo' => $request->tipo
-        ]; */
         $vehiculoAUsar = vehiculo::find($request->id_vehiculo);
 
 
@@ -64,8 +59,8 @@ class MantenimientoController extends Controller
             'vehiculo' => $vehiculoAUsar->nombre_vehiculo,
             'descripcion' => $request->descripcion,
             'kilometraje' => $request->kilometraje,
-            'fecha' => $request->fecha,
-            'fecha_prox' => $request->fecha_prox,
+            'fecha' => $fecha,
+            'fecha_prox' => $fecha_prox,
             'agencia'=> $request->agencia,
             'observaciones' => $request->observaciones,
             'costo' => $request->costo,

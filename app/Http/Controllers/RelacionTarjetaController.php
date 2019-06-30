@@ -108,6 +108,7 @@ class RelacionTarjetaController extends Controller
     public function store(RelacionTarjetaValidation $request)
     {
         //
+        $disponible=DB::table('vehiculos')->where('id','=',$request->id_vehiculo)->latest()->value('disponible');
         $tipogasolina= DB::table('vehiculos')->where('id', '=', $request->id_vehiculo)
         ->latest()->value('tipo_gasolina');
         $saldo = DB::table('tarjetas')->
@@ -118,13 +119,16 @@ class RelacionTarjetaController extends Controller
 
             if ($request->litros <= $max) {
                 if ($request->tipo_gasolina == $tipogasolina) {
+                    if ($disponible == 1) {
 
-                    relaciontarjeta::create($request->all());
-                    /* DB::table('tarjetas')->where('id', '=', $request->id_tarjeta)
-                    ->decrement('saldo', $request->monto); */
-                    return redirect('/relaciontarjeta');
+                        relaciontarjeta::create($request->all());
+                        return redirect('/relaciontarjeta');
+                    }else {
+                        return redirect()->route('relaciontarjeta.create')->with('error','El vehiculo no esta disponible');
+                    }
+
                 }else{
-                    return redirect()->route('relaciontarjeta.create')->with('detail','El tipo de gasolina no coincide ');
+                    return redirect()->route('relaciontarjeta.create')->with('error','El tipo de gasolina no coincide ');
                 }
 
             } else{

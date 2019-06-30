@@ -18,14 +18,6 @@
          </button>
         </div>
     @endif
-    @if ($message=Session::get('detail'))
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-         <p>{{$message}}</p>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-         </button>
-        </div>
-    @endif
     <form method ="POST" action=" {{route('relaciontarjeta.store')}} ">
         @csrf
         <div class="form-group">
@@ -68,15 +60,15 @@
                     </div>
                 </div>
             </div>
-
-
-    <div class="form-group">
             <div class="form-group">
                     <label for="litros">Litros</label>
                     <input type="integer" class="form-control" name="litros" value=" {{old('litros')}}"  placeholder="Ingrese los Litros Cargados">
                   </div>
-            <div class="form-group">
-        <button type="submit" class="btn btn-primary">Guardar</button>
+
+            <div class="form-group text-right">
+                <button type="submit" class="btn btn-primary "> Guardar</button>
+            <a class="btn btn-secondary " href=" {{route('relaciontarjeta.index')}}">Regresar</a>
+            </div>
       </form>
 </div>
 @endsection

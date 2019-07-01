@@ -70,15 +70,37 @@ class UserController extends Controller
         //
     }
 
+    
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $roles = DB::table('roles')->get();
+        //echo $roles;
+        return view('usuarios/editusuario', compact('user','roles'));
+    }
+
+    public function editpass(User $user)
+    {
+        return view('usuarios/editarpass', compact('user'));
+    }
+
+    public function storepass(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        if($request->password == $request->password1) {    
+            $user->password = bcrypt($request->password);
+            $user->save();
+            return redirect()->route('user.index')->with('info','La contraseña ha sido cambiada');
+        } else {
+            return redirect()->route('user.editpass', $user)->with('error','Las contraseñas no coinciden');
+        }
     }
 
     /**

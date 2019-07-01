@@ -29,6 +29,8 @@ Route::group(['middleware' => ['role:administrator']], function () {
         'RelacionTarjetaController@aprobar')->
         name('relaciontarjetum.aprobar');
         Route::resource('/user', 'UserController');
+        Route::get('user/{user}/pass', 'UserController@editpass')->name('user.editpass');
+        Route::put('user/{id}/pass', 'UserController@storepass')->name('user.storepass');
 });
 
 Route::group(['middleware' => ['role:vizor|administrator']], function () {

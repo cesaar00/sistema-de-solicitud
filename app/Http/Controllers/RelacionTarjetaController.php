@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\RelacionTarjetaValidation;
 use App\tarjeta;
 use App\vehiculo;
+use Illuminate\Support\Facades\Date;
 
 class RelacionTarjetaController extends Controller
 {
@@ -53,7 +54,7 @@ class RelacionTarjetaController extends Controller
                     decrement('saldo', $relaciontarjetum->monto);
 
                 $relaciontarjetum->delete();
-
+                $usuario = user::find($relaciontarjetum->id_usuario);
                 $vehiculo = vehiculo::find($relaciontarjetum->id_vehiculo);
                 $tarjeta = tarjeta::find($relaciontarjetum->id_tarjeta);
 
@@ -64,6 +65,7 @@ class RelacionTarjetaController extends Controller
                     'id_vehiculo' => $vehiculo->nombre_vehiculo,
                     'fecha_carga' => $relaciontarjetum->fecha_carga,
                     'litros' => $relaciontarjetum->litros,
+                    'id_usuario'=> $relaciontarjetum->id_usuario,
                     'aprobado' => 1
                 ]);
 
@@ -83,16 +85,19 @@ class RelacionTarjetaController extends Controller
 
         $relaciontarjetum->delete();
 
+        $usuario= usuario::find($relaciontarjetum->id_usuario);
         $vehiculo = vehiculo::find($relaciontarjetum->id_vehiculo);
         $tarjeta = tarjeta::find($relaciontarjetum->id_tarjeta);
 
         DB::table('relacion_tarjeta_historial')->insert([
+
             'monto' => $relaciontarjetum->monto,
             'id_tarjeta' => $tarjeta->benefactor,
             'tipo_gasolina' => $relaciontarjetum->tipo_gasolina,
             'id_vehiculo' => $vehiculo->nombre_vehiculo,
             'fecha_carga' => $relaciontarjetum->fecha_carga,
             'litros' => $relaciontarjetum->litros,
+            'id_usuario'=> $relaciontarjetum->id_usuario,
             'aprobado' => 2
         ]);
 
@@ -107,7 +112,10 @@ class RelacionTarjetaController extends Controller
      */
     public function store(RelacionTarjetaValidation $request)
     {
-        //
+
+        $fecha = Date::createFromFormat('d/m/Y', $request->fecha_carga);
+        $fechaactual= Date::today();
+        $username= auth()->user()->name;
         $disponible=DB::table('vehiculos')->where('id','=',$request->id_vehiculo)->latest()->value('disponible');
         $tipogasolina= DB::table('vehiculos')->where('id', '=', $request->id_vehiculo)
         ->latest()->value('tipo_gasolina');
@@ -120,6 +128,9 @@ class RelacionTarjetaController extends Controller
             if ($request->litros <= $max) {
                 if ($request->tipo_gasolina == $tipogasolina) {
                     if ($disponible == 1) {
+                        if ($fecha->gt($fechaactual)) {
+                            return redirect()->route('relaciontarjeta.create')->with('error','La fecha no puede ser mayor al dia actual');
+                        }
 
                         relaciontarjeta::create($request->all());
                         return redirect('/relaciontarjeta');

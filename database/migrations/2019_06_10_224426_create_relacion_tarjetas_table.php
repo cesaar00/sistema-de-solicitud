@@ -19,7 +19,7 @@ class CreateRelacionTarjetasTable extends Migration
             $table->bigInteger('id_tarjeta');
             $table->String('tipo_gasolina');
             $table->bigInteger('id_vehiculo');
-            $table->String('fecha_carga');
+            $table->date('fecha_carga');
             $table->bigInteger('litros');
             $table->smallInteger('aprobado')->default(0);
             $table->timestamps();
@@ -32,7 +32,7 @@ class CreateRelacionTarjetasTable extends Migration
             $table->string('id_tarjeta');
             $table->string('tipo_gasolina');
             $table->string('id_vehiculo');
-            $table->string('fecha_carga');
+            $table->date('fecha_carga');
             $table->bigInteger('litros');
             $table->smallInteger('aprobado')->default(0);
             $table->timestamps();

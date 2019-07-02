@@ -77,10 +77,22 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('user.editmypass') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('pass-form').submit();">
+                                        {{ __('Cambiar contraseña') }}
+                                    </a>
+                                    {{-- <a class="dropdown-item" href="{{ route('user.editmypass') }}">Cambiar contraseña</a> --}}
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+                                    <form id="pass-form" action="{{ route('user.editmypass') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
+
                                 </div>
                             </li>
                         @endguest

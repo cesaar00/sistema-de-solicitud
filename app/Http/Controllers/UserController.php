@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\UsuarioValidation;
+use App\Http\Requests\PassRequest;
 
 class UserController extends Controller
 {
@@ -100,6 +101,25 @@ class UserController extends Controller
             return redirect()->route('user.index')->with('info','La contraseña ha sido cambiada');
         } else {
             return redirect()->route('user.editpass', $user)->with('error','Las contraseñas no coinciden');
+        }
+    }
+
+    public function editmypass()
+    {
+        $user = auth()->user();
+        return view('usuarios/editarmypass', compact('user'));
+    }
+
+    public function storemypass(Request $request)
+    {
+        $user = auth()->user();
+
+        if($request->password == $request->password1) {    
+            $user->password = bcrypt($request->password);
+            $user->save();
+            return redirect()->route('user.index')->with('info','La contraseña ha sido cambiada');
+        } else {
+            return redirect()->route('user.index')->with('error','Error al cambiar la contraseña, los campos no coinciden');
         }
     }
 

@@ -31,6 +31,8 @@ Route::group(['middleware' => ['role:administrator']], function () {
         Route::resource('/user', 'UserController');
         Route::get('user/{user}/pass', 'UserController@editpass')->name('user.editpass');
         Route::put('user/{id}/pass', 'UserController@storepass')->name('user.storepass');
+        Route::post('user/editmypass', 'UserController@editmypass')->name('user.editmypass');
+        Route::post('user/storemypass', 'UserController@storemypass')->name('user.storemypass');
 });
 
 Route::group(['middleware' => ['role:vizor|administrator']], function () {
@@ -40,6 +42,10 @@ Route::group(['middleware' => ['role:vizor|administrator']], function () {
     Route::resource('/abono', 'AbonoController')->only(['index']);
     Route::resource('/mantenimiento', 'MantenimientoController')->only(['index']);
     Route::resource('/user', 'UserController')->only(['index']);
+
+    Route::post('user/editmypass', 'UserController@editmypass')->name('user.editmypass');
+    Route::post('user/storemypass', 'UserController@storemypass')->name('user.storemypass');
+
 });
 
 

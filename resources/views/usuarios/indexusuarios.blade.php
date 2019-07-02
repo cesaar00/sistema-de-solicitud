@@ -10,6 +10,14 @@
         </a>
     </div>
     @endif
+    @if ($message=Session::get('error'))
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <p>{{$message}}</p>
+        <a type="a" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </a>
+    </div>
+    @endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

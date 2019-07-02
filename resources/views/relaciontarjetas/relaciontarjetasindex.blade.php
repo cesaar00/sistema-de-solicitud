@@ -13,6 +13,7 @@
         <table id="example" class="table table-striped table-bordered">
                 <thead>
                   <tr>
+                    <th scope="col">Solicitante</th>
                     <th scope="col">Monto</th>
                     <th scope="col">Proveedor</th>
                     <th scope="col">Tipo de Gasolina</th>
@@ -30,6 +31,7 @@
                 <tbody>
                   @foreach ($relaciontarjetas as $relaciontarjeta)
                       <tr>
+                          <td> {{$solicitante}}</td>
                           <td> {{$relaciontarjeta->monto}} </td>
                           {{-- @if (empty($relaciontarjeta->tarjeta->benefactor))
                               <td>si</td>

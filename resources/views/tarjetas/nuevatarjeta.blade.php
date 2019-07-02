@@ -31,7 +31,10 @@
             <label for="benefactor">Proveedor</label>
             <input type="text" class="form-control" name="benefactor" value=" {{old('benefactor')}}"  placeholder="Ingrese el Benefactor">
         </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <div class="form-group text-right">
+                <button type="submit" class="btn btn-primary "> Guardar</button>
+                <a class="btn btn-secondary " href=" {{route('tarjeta.index')}}">Regresar</a>
+        </div>
       </form>
 </div>
 @endsection

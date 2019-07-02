@@ -75,7 +75,10 @@
             <label for="costo">Costo</label>
             <input type="integer" class="form-control" name="costo" value=" {{old('costo')}}"  placeholder="Ingrese el costo">
         </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <div class="form-group text-right">
+                <button type="submit" class="btn btn-primary "> Guardar</button>
+                <a class="btn btn-secondary " href=" {{route('mantenimiento.index')}}">Regresar</a>
+        </div>
 
 
       </form>

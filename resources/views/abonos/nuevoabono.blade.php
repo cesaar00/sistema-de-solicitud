@@ -41,7 +41,10 @@
                     @endforeach
                 </select>
             </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+            <div class="form-group text-right">
+                    <button type="submit" class="btn btn-primary "> Guardar</button>
+                    <a class="btn btn-secondary " href=" {{route('abono.index')}}">Regresar</a>
+            </div>
       </form>
 </div>
 @endsection

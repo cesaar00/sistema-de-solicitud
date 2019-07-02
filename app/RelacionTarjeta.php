@@ -15,6 +15,7 @@ class RelacionTarjeta extends Model
         'id_vehiculo',
         'fecha_carga',
         'litros',
+        'solicitante',
         'aprobado'
 
     ];

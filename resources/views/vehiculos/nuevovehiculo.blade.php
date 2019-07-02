@@ -40,7 +40,10 @@
                 <label for="descripcion_vehiculo">Descripcion del Vehiculo</label>
                 <textarea class="form-control" name="descripcion_vehiculo" rows="3"></textarea>
               </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+              <div class="form-group text-right">
+                    <button type="submit" class="btn btn-primary "> Guardar</button>
+                    <a class="btn btn-secondary " href=" {{route('vehiculo.index')}}">Regresar</a>
+              </div>
       </form>
 </div>
 @endsection

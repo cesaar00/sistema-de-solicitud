@@ -21,6 +21,7 @@ class CreateRelacionTarjetasTable extends Migration
             $table->bigInteger('id_vehiculo');
             $table->date('fecha_carga');
             $table->bigInteger('litros');
+            $table->string('solicitante');
             $table->smallInteger('aprobado')->default(0);
             $table->timestamps();
 
@@ -34,6 +35,7 @@ class CreateRelacionTarjetasTable extends Migration
             $table->string('id_vehiculo');
             $table->date('fecha_carga');
             $table->bigInteger('litros');
+            $table->string('solicitante');
             $table->smallInteger('aprobado')->default(0);
             $table->timestamps();
 

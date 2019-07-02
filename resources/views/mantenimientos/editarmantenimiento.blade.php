@@ -29,12 +29,13 @@
             <label for="kilometraje">kilometraje</label>
             <input type="integer" class="form-control" name="kilometraje"   value=" {{$mantenimiento->kilometraje}}"  placeholder="Ingrese kilometraje del vehiculo">
         </div>
-        <div class="form-group">
+        <div class="form-group ">
                 <label for="tipo">Tipo</label>
-                <select class="browser-default custom-select" name="tipo">
-                    <option value="0">entrada</option>
-                    <option value="1">salida</option>
+                 <select class="browser-default custom-select" name="tipo">
+                    <option value="0">En Mantenimiento</option>
+                    <option value="1">Disponible</option>
                 </select>
+                {{-- <input  type="integer" class="form-control " name="tipo" value=" {{$mantenimiento->tipo ? 'Disponible': 'En Mantenimento'}}"> --}}
             </div>
             <div class="form-group">
                     <label for="id_vehiculo">Fecha Asignada al Mantenimiento</label>

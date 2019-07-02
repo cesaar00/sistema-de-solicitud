@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -15,7 +15,7 @@
                     @endif
 
                     {{-- <a href="" class="btn ptn-primary pull-right">Nuevo usuario</a> --}}
-                    <table class="table table-hover table-striped">
+                    {{-- <table class="table table-hover table-striped">
                         <thead>
                             <tr>
                                 <th width="20px">ID</th>
@@ -48,6 +48,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </div> --}}
+{{-- </div> --}}
 @endsection

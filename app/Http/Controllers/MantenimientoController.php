@@ -118,7 +118,20 @@ class MantenimientoController extends Controller
     public function update(MantenimientoValidation $request, mantenimiento $mantenimiento)
     {
 
-        $mantenimiento->update($request->all());
+        $vehiculoAUsar = vehiculo::find($request->id_vehiculo);
+        $fecha = Date::createFromFormat('d/m/Y', $request->fecha);
+        $fecha_prox = Date::createFromFormat('d/m/Y', $request->fecha_prox);
+        $mantenimiento->update([
+            'vehiculo' => $vehiculoAUsar->nombre_vehiculo,
+            'descripcion' => $request->descripcion,
+            'kilometraje' => $request->kilometraje,
+            'fecha' => $fecha,
+            'fecha_prox' => $fecha_prox,
+            'agencia'=> $request->agencia,
+            'observaciones' => $request->observaciones,
+            'costo' => $request->costo,
+            'tipo' => $request->tipo
+        ]);
         return redirect('/mantenimiento');
         //
     }

@@ -7,7 +7,7 @@
                     <th scope="col">Vehiculo</th>
                     <th scope="col">Descripcion</th>
                     <th scope="col">Kilometraje</th>
-                    <th scope="col">Acción</th>
+                    <th scope="col">Estatus</th>
                     <th scope="col">Fecha </th>
                     <th scope="col">Fecha Proxima</th>
                     <th scope="col">Agencia</th>
@@ -24,7 +24,7 @@
                           <td> {{$mantenimiento->vehiculo}} </td>
                           <td> {{$mantenimiento->descripcion}} </td>
                           <td> {{$mantenimiento->kilometraje}} </td>
-                          <td> {{$mantenimiento->tipo ? 'Salida': 'Entrada'}}</td>
+                          <td> {{$mantenimiento->tipo ? 'Disponible': 'En Mantenimento'}}</td>
                           <td> {{$mantenimiento->fecha}} </td>
                           <td> {{$mantenimiento->fecha_prox}} </td>
                           <td> {{$mantenimiento->agencia}} </td>

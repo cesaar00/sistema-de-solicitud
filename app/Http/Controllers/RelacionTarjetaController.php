@@ -54,10 +54,12 @@ class RelacionTarjetaController extends Controller
                     decrement('saldo', $relaciontarjetum->monto);
 
                 $relaciontarjetum->delete();
+                $solicitante = auth()->user()->name;
                 $vehiculo = vehiculo::find($relaciontarjetum->id_vehiculo);
                 $tarjeta = tarjeta::find($relaciontarjetum->id_tarjeta);
 
                 DB::table('relacion_tarjeta_historial')->insert([
+                    'solicitante'=> $solicitante,
                     'monto' => $relaciontarjetum->monto,
                     'id_tarjeta' => $tarjeta->benefactor,
                     'tipo_gasolina' => $relaciontarjetum->tipo_gasolina,
@@ -83,11 +85,12 @@ class RelacionTarjetaController extends Controller
 
         $relaciontarjetum->delete();
 
+        $solicitante = auth()->user()->name;
         $vehiculo = vehiculo::find($relaciontarjetum->id_vehiculo);
         $tarjeta = tarjeta::find($relaciontarjetum->id_tarjeta);
 
         DB::table('relacion_tarjeta_historial')->insert([
-
+            'solicitante'=> $solicitante,
             'monto' => $relaciontarjetum->monto,
             'id_tarjeta' => $tarjeta->benefactor,
             'tipo_gasolina' => $relaciontarjetum->tipo_gasolina,
@@ -129,7 +132,16 @@ class RelacionTarjetaController extends Controller
                             return redirect()->route('relaciontarjeta.create')->with('error','La fecha no puede ser mayor al dia actual');
                         }
 
-                        relaciontarjeta::create($request->all());
+                        relaciontarjeta::create([
+                            'solicitante'=> $solicitante,
+                            'monto' => $request->monto,
+                            'id_tarjeta' => $request->id_tarjeta,
+                            'tipo_gasolina' => $request->tipo_gasolina,
+                            'id_vehiculo' => $request->id_vehiculo,
+                            'fecha_carga' => $fecha,
+                            'litros' => $request->litros,
+
+                        ]);
                         return redirect('/relaciontarjeta');
                     }else {
                         return redirect()->route('relaciontarjeta.create')->with('error','El vehiculo no esta disponible');

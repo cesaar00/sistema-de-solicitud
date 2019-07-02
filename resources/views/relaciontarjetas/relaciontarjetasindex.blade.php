@@ -31,7 +31,7 @@
                 <tbody>
                   @foreach ($relaciontarjetas as $relaciontarjeta)
                       <tr>
-                          <td> {{$solicitante}}</td>
+                          <td> {{$relaciontarjeta->solicitante}}</td>
                           <td> {{$relaciontarjeta->monto}} </td>
                           {{-- @if (empty($relaciontarjeta->tarjeta->benefactor))
                               <td>si</td>

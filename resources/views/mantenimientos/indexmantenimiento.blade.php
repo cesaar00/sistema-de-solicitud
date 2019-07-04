@@ -24,7 +24,7 @@
                           <td> {{$mantenimiento->vehiculo}} </td>
                           <td> {{$mantenimiento->descripcion}} </td>
                           <td> {{$mantenimiento->kilometraje}} </td>
-                          <td> {{$mantenimiento->tipo ? 'Disponible': 'En Mantenimento'}}</td>
+                          <td> {{$mantenimiento->tipo ? 'Activar': 'Enviar a Mantenimento'}}</td>
                           <td> {{$mantenimiento->fecha}} </td>
                           <td> {{$mantenimiento->fecha_prox}} </td>
                           <td> {{$mantenimiento->agencia}} </td>
@@ -32,14 +32,21 @@
                           <td> {{$mantenimiento->costo}} </td>
 
                           @role('administrator')
+                          <td>
+                              @if ($mantenimiento->estado == 0)
+                              <a href=" {{route('mantenimiento.aprobar', $mantenimiento->id)}} "
+                                  class="btn btn-primary btn-sm">
+                                  Aprobar
+                              </a>
+                              <form action="{{route('mantenimiento.destroy', $mantenimiento->id)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-secondary btn-sm">Eliminar</button>
+                              </form>
+                              @endif
+                          </td>
+                          @endrole
 
-                                @componente([
-                                    'route'=>'mantenimiento',
-                                    'id'=>$mantenimiento->id,
-                                    'name'=> $mantenimiento->vehiculo,
-                                ])
-                                @endcomponente
-                                @endrole
                       </tr>
                   @endforeach
                 </tbody>

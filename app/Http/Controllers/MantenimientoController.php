@@ -56,7 +56,9 @@ class MantenimientoController extends Controller
 
 
         mantenimiento::create([
+
             'vehiculo' => $vehiculoAUsar->nombre_vehiculo,
+            'id_vehiculo' => $vehiculoAUsar->id,
             'descripcion' => $request->descripcion,
             'kilometraje' => $request->kilometraje,
             'fecha' => $fecha,
@@ -67,8 +69,8 @@ class MantenimientoController extends Controller
             'tipo' => $request->tipo
         ]);
 
-        $vehiculoAUsar->disponible = $request->tipo;
-        $vehiculoAUsar->save();
+        //$vehiculoAUsar->disponible = $request->tipo;
+        //$vehiculoAUsar->save();
         return redirect()->route('mantenimiento.index');
         //dd($vehiculoAUsar);
         /* return redirect()->route('mantenimiento.up', $datos); */
@@ -136,15 +138,25 @@ class MantenimientoController extends Controller
         //
     }
 
+    public function aprobar(mantenimiento $mantenimiento)
+    {
+        $vehiculoAUsar = vehiculo::find($mantenimiento->id_vehiculo);
+        $vehiculoAUsar->disponible = $mantenimiento->tipo;
+        $vehiculoAUsar->save();
+
+        $mantenimiento->estado = 1;
+        $mantenimiento->save();
+        return redirect()->route('mantenimiento.index');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\mantenimiento  $mantenimiento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $mantenimiento)
+    public function destroy(mantenimiento $mantenimiento)
     {
-        //
         DB::table('mantenimientos')->where('id', '=',$mantenimiento->id)->delete();
         return redirect()->route('mantenimiento.index')->with('info','registro eliminado');
     }

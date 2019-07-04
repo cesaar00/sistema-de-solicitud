@@ -49,22 +49,22 @@
                           </td>
                           @role('administrator')
                           <td>
-                          @if ($relaciontarjeta->aprobado == 2)
-                          Rechazada
-                          @elseif($relaciontarjeta->aprobado == 1)
-                          Aprobada
-                                @else
-                                <a href=" {{route('relaciontarjetum.aprobar',$relaciontarjeta->id)}}"
-                                    class="btn btn-primary btn-sm">
-                                    Aprobar
-                                  </a>
-                                  <a href=" {{route('relaciontarjetum.cancelar',$relaciontarjeta->id)}}"
-                                      class="btn btn-dark btn-sm">
-                                      Cancelar
-                                    </a>
-                                @endif
-                            </td>
-                                @endrole
+                              @if ($relaciontarjeta->aprobado == 2)
+                              Rechazada
+                              @elseif($relaciontarjeta->aprobado == 1)
+                              Aprobada
+                              @else
+                              <a href=" {{route('relaciontarjetum.aprobar',$relaciontarjeta->id)}}"
+                                  class="btn btn-primary btn-sm">
+                                  Aprobar
+                              </a>
+                              <a href=" {{route('relaciontarjetum.cancelar',$relaciontarjeta->id)}}"
+                                  class="btn btn-dark btn-sm">
+                                  Cancelar
+                              </a>
+                              @endif
+                          </td>
+                          @endrole
                       </tr>
                   @endforeach
                 </tbody>

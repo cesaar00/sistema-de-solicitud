@@ -33,6 +33,7 @@ Route::group(['middleware' => ['role:administrator']], function () {
         Route::put('user/{id}/pass', 'UserController@storepass')->name('user.storepass');
         Route::post('user/editmypass', 'UserController@editmypass')->name('user.editmypass');
         Route::post('user/storemypass', 'UserController@storemypass')->name('user.storemypass');
+        Route::get('mantanimiento/{mantenimiento}/aprobar', 'MantenimientoController@aprobar')->name('mantenimiento.aprobar');
 });
 
 Route::group(['middleware' => ['role:vizor|administrator']], function () {

@@ -15,6 +15,7 @@ class CreateMantenimientosTable extends Migration
     {
         Schema::create('mantenimientos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('id_vehiculo');
             $table->string('vehiculo');
             $table->string('descripcion',191);
             $table->bigInteger('kilometraje');
@@ -23,7 +24,8 @@ class CreateMantenimientosTable extends Migration
             $table->string('agencia',191);
             $table->string('observaciones',191);
             $table->string('costo');
-            $table->boolean('tipo')->default(true);
+            $table->boolean('tipo')->default(false);
+            $table->smallInteger('estado')->default(0);
             $table->timestamps();
         });
     }

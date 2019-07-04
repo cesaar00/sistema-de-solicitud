@@ -17,7 +17,18 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::where('email', '<>', 'admin_prueba@gmail.com')->paginate(4);
+        /* $users = User::where('email', '<>', 'admin_prueba@gmail.com'); */
+        $users = DB::table('users')
+        ->join('model_has_roles', 'model_has_roles.model_id', 'users.id')
+        ->join('roles', 'roles.id', 'model_has_roles.role_id')
+        ->select('users.id', 
+                'users.name', 
+                'users.lastname', 
+                'users.email',
+                'roles.name as role'
+                )
+        ->where('email', '<>', 'admin_prueba@gmail.com')
+        ->paginate(3);
        /*  $users = User::orderBy('id', 'DESC')->paginate(3); */
         return view('usuarios/indexusuarios', compact('users'));
     }

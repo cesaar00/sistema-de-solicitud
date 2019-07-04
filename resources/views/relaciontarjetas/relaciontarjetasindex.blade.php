@@ -32,7 +32,7 @@
                   @foreach ($relaciontarjetas as $relaciontarjeta)
                       <tr>
                           <td> {{$relaciontarjeta->solicitante}}</td>
-                          <td> {{$relaciontarjeta->monto}} </td>
+                          <td class="text-right"> $ {{$relaciontarjeta->monto}} </td>
                           {{-- @if (empty($relaciontarjeta->tarjeta->benefactor))
                               <td>si</td>
                           @else
@@ -43,9 +43,9 @@
                           <td> {{$relaciontarjeta->tipo_gasolina}} </td>
                           <td> {{$relaciontarjeta->vehiculo ? $relaciontarjeta->vehiculo->nombre_vehiculo : $relaciontarjeta->id_vehiculo }} </td> </td>
                           <td> {{$relaciontarjeta->fecha_carga}} </td>
-                          <td> {{$relaciontarjeta->litros}} </td>
-                          <td>
-                               {{round($relaciontarjeta->monto / $relaciontarjeta->litros, 2)}}
+                          <td class="text-right"> {{$relaciontarjeta->litros}} </td>
+                          <td class="text-right">
+                              $ {{round($relaciontarjeta->monto / $relaciontarjeta->litros, 2)}}
                           </td>
                           @role('administrator')
                           <td>

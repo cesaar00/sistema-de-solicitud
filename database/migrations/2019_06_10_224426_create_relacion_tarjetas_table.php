@@ -15,7 +15,7 @@ class CreateRelacionTarjetasTable extends Migration
     {
         Schema::create('relacion_tarjetas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('monto');
+            $table->float('monto');
             $table->bigInteger('id_tarjeta');
             $table->String('tipo_gasolina');
             $table->bigInteger('id_vehiculo');
@@ -29,7 +29,7 @@ class CreateRelacionTarjetasTable extends Migration
 
         Schema::create('relacion_tarjeta_historial', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('monto');
+            $table->float('monto');
             $table->string('id_tarjeta');
             $table->string('tipo_gasolina');
             $table->string('id_vehiculo');

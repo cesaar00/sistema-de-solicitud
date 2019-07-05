@@ -8,6 +8,7 @@
                     <th scope="col">Monto</th>
                     <th scope="col">Fecha</th>
                     <th scope="col">Proveedor</th>
+                    <td scope="col">Acciones</td>
                   </tr>
                 </thead>
                 <tbody>
@@ -17,6 +18,24 @@
                           <td> {{$abono->monto}} </td>
                           <td> {{$abono->fecha}} </td>
                           <td> {{$abono->benefactor}} </td>
+                          @role('administrator')
+                          <td>
+                              @if ($abono->estado == 2)
+                              Rechazada
+                              @elseif($abono->estado == 1)
+                              Aprobada
+                              @else
+                              <a href=" {{route('abono.aprobar',$abono->id)}}"
+                                  class="btn btn-primary btn-sm">
+                                  Aprobar
+                              </a>
+                              <a href=" {{route('abono.cancelar',$abono->id)}}"
+                                  class="btn btn-dark btn-sm">
+                                  Cancelar
+                              </a>
+                              @endif
+                          </td>
+                          @endrole
                           {{-- <td>
                               <form action="{{route('abono.destroy', $abono->id)}}" method="post">
                                 {{ csrf_field() }}

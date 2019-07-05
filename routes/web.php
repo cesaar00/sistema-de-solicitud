@@ -34,6 +34,13 @@ Route::group(['middleware' => ['role:administrator']], function () {
         Route::post('user/editmypass', 'UserController@editmypass')->name('user.editmypass');
         Route::post('user/storemypass', 'UserController@storemypass')->name('user.storemypass');
         Route::get('mantanimiento/{mantenimiento}/aprobar', 'MantenimientoController@aprobar')->name('mantenimiento.aprobar');
+    
+    Route::get('abono/{abono}/cancelar',
+        'AbonoController@cancelar')->
+        name('abono.cancelar');
+    Route::get('abono/{abono}/aprobar',
+        'AbonoController@aprobar')->
+        name('abono.aprobar');
 });
 
 Route::group(['middleware' => ['role:vizor|administrator']], function () {

@@ -19,7 +19,13 @@ class AbonoController extends Controller
         //
        $abonos=DB::table('abonos')
        ->join ('tarjetas','tarjetas.id','=','abonos.id_tarjeta')
-       ->select('abonos.id','abonos.folio','abonos.monto','abonos.fecha','tarjetas.benefactor')->get();
+       ->select('abonos.id',
+                'abonos.folio',
+                'abonos.monto',
+                'abonos.fecha',
+                'tarjetas.benefactor',
+                'abonos.estado'
+        )->get();
 
        ;
         return view('abonos/indexabonos', compact('abonos'));
@@ -45,15 +51,26 @@ class AbonoController extends Controller
      */
     public function store(AbonoValidation $request)
     {
-        //
-        $saldo = DB::table('tarjetas')->
-        where('id', '=', $request->id_tarjeta)->latest()->value('saldo');
+        abono::create($request->all());
+        return redirect('/abono');
 
-            abono::create($request->all());
-            DB::table('tarjetas')->where('id', '=', $request->id_tarjeta)
-            ->increment('saldo', $request->monto);
-            return redirect('/abono');
+    }
 
+    public function aprobar(abono $abono)
+    {
+        DB::table('tarjetas')->where('id', '=', $abono->id_tarjeta)
+        ->increment('saldo', $abono->monto);
+
+        $abono->estado = 1;
+        $abono->save();
+        return redirect('/abono');
+    }
+
+    public function cancelar(abono $abono)
+    {
+        $abono->estado = 2;
+        $abono->save();
+        return redirect('/abono');
     }
 
     /**

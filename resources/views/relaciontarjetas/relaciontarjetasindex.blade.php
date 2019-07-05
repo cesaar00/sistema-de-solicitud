@@ -21,7 +21,7 @@
                     <th scope="col">Fecha de Carga</th>
                     <th scope="col">Litros</th>
                     <th scope="col">Precio Unitario</th>
-                    @role('administrator')
+                    @role('administrador')
                     <th scope="col">Estado</th>
                     @endrole
 

@@ -21,7 +21,7 @@ class roles extends Seeder
         Permission::create(['name' => 'delete articles']);
         Permission::create(['name' => 'publish articles']);
         Permission::create(['name' => 'unpublish articles']); */
-        $role = Role::create(['name' => 'administrator']);
+        $role = Role::create(['name' => 'administrador']);
         $role = Role::create(['name' => 'vizor']);
 
         $admin=User::create([
@@ -31,7 +31,7 @@ class roles extends Seeder
             'password' => bcrypt('12345678')
 
         ]);
-        $admin->assignRole('administrator');
+        $admin->assignRole('administrador');
 
         $admin=User::create([
             'name'=> 'Raul',
@@ -40,7 +40,7 @@ class roles extends Seeder
             'password' => bcrypt('12345678')
 
         ]);
-        $admin->assignRole('administrator');
+        $admin->assignRole('administrador');
 
         $vizor=User::create([
             'name'=> 'Vizor',

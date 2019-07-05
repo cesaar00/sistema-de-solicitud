@@ -47,7 +47,7 @@
                           <td class="text-right">
                               $ {{round($relaciontarjeta->monto / $relaciontarjeta->litros, 2)}}
                           </td>
-                          @role('administrator')
+                          @role('administrador')
                           <td>
                               @if ($relaciontarjeta->aprobado == 2)
                               Rechazada

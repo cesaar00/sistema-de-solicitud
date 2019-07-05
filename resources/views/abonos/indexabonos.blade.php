@@ -15,10 +15,10 @@
                   @foreach ($abonos as $abono)
                       <tr>
                           <td> {{$abono->folio}} </td>
-                          <td> ${{$abono->monto}} </td>
+                          <td class="text-right"> ${{$abono->monto}} </td>
                           <td> {{$abono->fecha}} </td>
                           <td> {{$abono->benefactor}} </td>
-                          @role('administrator')
+                          @role('administrador')
                           <td>
                               @if ($abono->estado == 2)
                               Rechazada
@@ -46,7 +46,7 @@
                   @endforeach
                 </tbody>
               </table>
-              @role('administrator')
+              @role('administrador')
               <a href=" {{route('abono.create')}} " class="btn btn-primary">Crear</a>
               @endrole
               {{-- {{$abonos->links()}} --}}

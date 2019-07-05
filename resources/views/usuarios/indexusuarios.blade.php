@@ -39,7 +39,7 @@
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Apellido</th>
                                 <th scope="col">Correo electrónico</th>
-                                @role ('administrator')
+                                @role ('administrador')
                                 <th scope="col">Acciones</th>
                                 @endrole
                             </tr>
@@ -52,7 +52,7 @@
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->lastname}}</td>
                                 <td>{{$user->email}}</td>
-                                @role('administrator')
+                                @role('administrador')
 
                                 @componente([
                                     'route'=>'user',
@@ -66,7 +66,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    @role ('administrator')
+                    @role ('administrador')
                     <a href=" {{route('user.create')}} " class="btn btn-primary">Crear</a>
                     @endrole
                 </div>

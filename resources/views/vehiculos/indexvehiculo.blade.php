@@ -29,7 +29,7 @@
                     <th scope="col">Tipo de Gasolina</th>
                     <th scope="col">Modelo del Automovil</th>
                     <th scope="col">Descripcion del Automovil</th>
-                    @role ('administrator')
+                    @role ('administrador')
                     <th scope="col">Acciones</th>
                     @endrole
                   </tr>
@@ -41,11 +41,11 @@
                             {{$vehiculo->disponible ? 'Disponible' : 'En Mantenimiento'}}
                         </td>
                         <td> {{$vehiculo->nombre_vehiculo}} </td>
-                        <td> {{$vehiculo->capacidad_tanque_gasolina}} </td>
+                        <td class="text-right"> {{$vehiculo->capacidad_tanque_gasolina}} </td>
                         <td> {{$vehiculo->tipo_gasolina}} </td>
-                        <td> {{$vehiculo->modelo_vehiculo}} </td>
+                        <td class="text-right"> {{$vehiculo->modelo_vehiculo}} </td>
                         <td> {{$vehiculo->descripcion_vehiculo}} </td>
-                          @role('administrator')
+                          @role('administrador')
 
                           @componente([
                           'route'=>'vehiculo',
@@ -58,7 +58,7 @@
                     @endforeach
                 </tbody>
               </table>
-              @role ('administrator')
+              @role ('administrador')
               <a href=" {{route('vehiculo.create')}} " class="btn btn-primary">Crear</a>
               {{$vehiculos->links()}}
               @endrole

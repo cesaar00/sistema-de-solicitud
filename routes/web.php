@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/login');
 });
-Route::group(['middleware' => ['role:administrator']], function () {
+Route::group(['middleware' => ['role:administrador']], function () {
     Route::resource('/vehiculo', 'VehiculoController');
     Route::resource('/tarjeta', 'TarjetaController');
     Route::resource('/relaciontarjeta','RelacionTarjetaController');
@@ -34,7 +34,7 @@ Route::group(['middleware' => ['role:administrator']], function () {
         Route::post('user/editmypass', 'UserController@editmypass')->name('user.editmypass');
         Route::post('user/storemypass', 'UserController@storemypass')->name('user.storemypass');
         Route::get('mantanimiento/{mantenimiento}/aprobar', 'MantenimientoController@aprobar')->name('mantenimiento.aprobar');
-    
+
     Route::get('abono/{abono}/cancelar',
         'AbonoController@cancelar')->
         name('abono.cancelar');
@@ -43,7 +43,7 @@ Route::group(['middleware' => ['role:administrator']], function () {
         name('abono.aprobar');
 });
 
-Route::group(['middleware' => ['role:vizor|administrator']], function () {
+Route::group(['middleware' => ['role:vizor|administrador']], function () {
     Route::resource('/vehiculo', 'VehiculoController')->only(['index']);
     Route::resource('/tarjeta', 'TarjetaController')->only(['index']);
     Route::resource('/relaciontarjeta','RelacionTarjetaController')->only(['index', 'create', 'store']);

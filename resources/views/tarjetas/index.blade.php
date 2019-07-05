@@ -24,7 +24,7 @@
                     <th scope="col">Tipo Monedero</th>
                     <th scope="col">Saldo</th>
                     <th scope="col">Proveedor</th>
-                    @role ('administrator')
+                    @role ('administrador')
                     <th scope="col">Acciones</th>
                     @endrole
                   </tr>
@@ -34,9 +34,9 @@
                       <tr>
                           <td> {{$tarjeta->numero_tarjeta}} </td>
                           <td> {{$tarjeta->tipo_monedero}} </td>
-                          <td> ${{$tarjeta->saldo}} </td>
+                          <td class="text-right"> ${{$tarjeta->saldo}} </td>
                           <td> {{$tarjeta->benefactor}} </td>
-                                @role('administrator')
+                                @role('administrador')
 
                                 @componente([
                                     'route'=>'tarjeta',
@@ -49,7 +49,7 @@
                   @endforeach
                 </tbody>
               </table>
-              @role ('administrator')
+              @role ('administrador')
               <a href=" {{route('tarjeta.create')}} " class="btn btn-primary">Crear</a>
               {{$tarjetas->links()}}
               @endrole

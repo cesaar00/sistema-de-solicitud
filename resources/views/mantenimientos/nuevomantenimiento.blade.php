@@ -39,8 +39,8 @@
         <div class="form-group">
                 <label for="tipo">Tipo</label>
                 <select class="browser-default custom-select" name="tipo">
-                    <option value="0">En Mantenimiento</option>
-                    <option value="1">Disponible</option>
+                    <option value="0">Enviar  Mantenimiento</option>
+                    <option value="1">Disponible para Circular</option>
                 </select>
             </div>
             <div class="form-group">

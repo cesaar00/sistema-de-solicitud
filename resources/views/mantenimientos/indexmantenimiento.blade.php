@@ -13,7 +13,7 @@
                     <th scope="col">Agencia</th>
                     <th scope="col">Observaciones</th>
                     <th scope="col">Costo</th>
-                    @role ('administrator')
+                    @role ('administrador')
                     <th scope="col">Acciones</th>
                     @endrole
                   </tr>
@@ -23,15 +23,15 @@
                       <tr>
                           <td> {{$mantenimiento->vehiculo}} </td>
                           <td> {{$mantenimiento->descripcion}} </td>
-                          <td> {{$mantenimiento->kilometraje}} </td>
-                          <td> {{$mantenimiento->tipo ? 'Activar': 'Enviar a Mantenimento'}}</td>
+                          <td class="text-right"> {{$mantenimiento->kilometraje}} </td>
+                          <td> {{$mantenimiento->tipo ? 'Disponible para Circular': 'Enviar a Mantenimento'}}</td>
                           <td> {{$mantenimiento->fecha}} </td>
                           <td> {{$mantenimiento->fecha_prox}} </td>
                           <td> {{$mantenimiento->agencia}} </td>
                           <td> {{$mantenimiento->observaciones}} </td>
-                          <td> {{$mantenimiento->costo}} </td>
+                          <td class="text-right"> ${{$mantenimiento->costo}} </td>
 
-                          @role('administrator')
+                          @role('administrador')
                           <td>
                               @if ($mantenimiento->estado == 0)
                               <a href=" {{route('mantenimiento.aprobar', $mantenimiento->id)}} "
@@ -51,7 +51,7 @@
                   @endforeach
                 </tbody>
               </table>
-             @role('administrator')
+             @role('administrador')
               <a href=" {{route('mantenimiento.create')}} " class="btn btn-primary">Crear</a>
              {{--  {{$mantenimientos->links()}} --}}
              @endrole

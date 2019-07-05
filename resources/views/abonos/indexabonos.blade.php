@@ -15,7 +15,7 @@
                   @foreach ($abonos as $abono)
                       <tr>
                           <td> {{$abono->folio}} </td>
-                          <td> {{$abono->monto}} </td>
+                          <td> ${{$abono->monto}} </td>
                           <td> {{$abono->fecha}} </td>
                           <td> {{$abono->benefactor}} </td>
                           @role('administrator')

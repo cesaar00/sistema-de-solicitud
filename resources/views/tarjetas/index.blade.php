@@ -34,7 +34,7 @@
                       <tr>
                           <td> {{$tarjeta->numero_tarjeta}} </td>
                           <td> {{$tarjeta->tipo_monedero}} </td>
-                          <td> {{$tarjeta->saldo}} </td>
+                          <td> ${{$tarjeta->saldo}} </td>
                           <td> {{$tarjeta->benefactor}} </td>
                                 @role('administrator')
 

@@ -16,7 +16,7 @@ class CreateAbonosTable extends Migration
         Schema::create('abonos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('folio');
-            $table->bigInteger('monto');
+            $table->float('monto');
             $table->string('fecha',191);
             $table->bigInteger('id_tarjeta');
             $table->smallInteger('estado')->default(0);

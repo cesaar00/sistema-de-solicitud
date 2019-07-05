@@ -17,7 +17,7 @@ class CreateTarjetasTable extends Migration
             $table->bigIncrements('id');
             $table->string('numero_tarjeta',191);
             $table->string('tipo_monedero',191);
-            $table->bigInteger('saldo');
+            $table->float('saldo');
             $table->string('benefactor',191);
             $table->timestamps();
         });

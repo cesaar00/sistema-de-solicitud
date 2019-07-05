@@ -8,7 +8,9 @@
                     <th scope="col">Monto</th>
                     <th scope="col">Fecha</th>
                     <th scope="col">Proveedor</th>
+                    @role ('administrador')
                     <td scope="col">Acciones</td>
+                    @endrole
                   </tr>
                 </thead>
                 <tbody>

@@ -91,12 +91,12 @@
               </div>
 
 
-              <div class="form-group col-md-4 text-right">
-                      <button type="submit" class="btn btn-primary "> Guardar</button>
-                      <a class="btn btn-secondary " href=" {{route('mantenimiento.index')}}">Regresar</a>
-              </div>
 
-        </div>
+            </div>
+                  <div class="form-group  text-right">
+                          <button type="submit" class="btn btn-primary "> Guardar</button>
+                          <a class="btn btn-secondary " href=" {{route('mantenimiento.index')}}">Regresar</a>
+                  </div>
 
 
 

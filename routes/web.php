@@ -49,7 +49,7 @@ Route::group(['middleware' => ['role:vizor|administrador']], function () {
     Route::resource('/relaciontarjeta','RelacionTarjetaController')->only(['index', 'create', 'store']);
     Route::resource('/abono', 'AbonoController')->only(['index']);
     Route::resource('/mantenimiento', 'MantenimientoController')->only(['index']);
-    Route::resource('/user', 'UserController')->only(['index']);
+    /* Route::resource('/user', 'UserController')->only(['index']); */
 
     Route::post('user/editmypass', 'UserController@editmypass')->name('user.editmypass');
     Route::post('user/storemypass', 'UserController@storemypass')->name('user.storemypass');
@@ -67,4 +67,4 @@ Auth::routes();
 /* Route::get('/home', 'HomeController@index')->name('home');
 Route::delete('/home/{id}', 'HomeController@destroy')->name('home.destroy'); */
 
-Route::resource('/user', 'UserController');
+/* Route::resource('/user', 'UserController'); */

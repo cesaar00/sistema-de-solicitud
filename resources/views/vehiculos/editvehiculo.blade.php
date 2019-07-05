@@ -38,7 +38,7 @@
             </div>
              <div class="form-group col-md-12">
                 <label for="descripcion_vehiculo">Descripcion del Vehiculo</label>
-                <textarea input type="text" class="form-control" name="descripcion_vehiculo" value=" {{$vehiculo->descripcion_vehiculo}}"  placeholder="Ingrese Descripcion del Vehiculo"></textarea>
+                <input type="text" class="form-control" name="descripcion_vehiculo" value=" {{$vehiculo->descripcion_vehiculo}}"  placeholder="Ingrese Descripcion del Vehiculo">
             </div>
 
 

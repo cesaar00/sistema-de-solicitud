@@ -23,7 +23,9 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
 </head>
-<body class="bg-crit">
+<body class="
+@yield('body','bg-crit')
+">
     <div id="app">
 
         <nav class="navbar navbar-expand-md navbar-dark shadow-sm crit-nav-color">

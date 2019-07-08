@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('/login');
+    return redirect('/inicio');
 });
 Route::group(['middleware' => ['role:administrador']], function () {
     Route::resource('/vehiculo', 'VehiculoController');
@@ -41,8 +41,8 @@ Route::group(['middleware' => ['role:administrador']], function () {
     Route::get('abono/{abono}/aprobar',
         'AbonoController@aprobar')->
         name('abono.aprobar');
-    
-    
+
+
 });
 
 Route::group(['middleware' => ['role:vizor|administrador']], function () {

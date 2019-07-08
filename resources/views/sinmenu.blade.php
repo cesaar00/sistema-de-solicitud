@@ -16,7 +16,7 @@
          rel="stylesheet">
      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
          rel="stylesheet">
- 
+
      <!-- Styles -->
      <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
      <link href="{{ asset('css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet">
@@ -25,7 +25,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark crit-nav-color shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/inicio') }}">
                     {{ config('app.name', 'Sistema Control') }}

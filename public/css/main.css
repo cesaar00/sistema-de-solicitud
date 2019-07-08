@@ -1,10 +1,16 @@
-body.bg-crit {
+.bg-crit {
     background-image: url("../img/background1.JPG");
     background-color: #cccccc;
     background-repeat: no-repeat;
-    background-size: cover; 
+    background-size: cover;
 }
 
+.bg-crit2 {
+    background-image: url("../img/background2.JPG");
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .crit-color {
     color: #5d2372;
 }

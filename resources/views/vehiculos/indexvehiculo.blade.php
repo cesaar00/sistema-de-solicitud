@@ -1,4 +1,7 @@
 @extends('layouts/app')
+@section('body','bg-crit')
+
+
 @section('content')
 <div class="container">
     @if ($message=Session::get('info'))

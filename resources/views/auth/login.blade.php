@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Iniciar Sesión') }}</div>
+                <div class="card-header text-center">
+                    {{-- {{ __('Iniciar Sesión') }} --}}
+                    <img src="{{asset('img/banner.png')}}" class="crit-logo">
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

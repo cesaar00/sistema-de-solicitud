@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container crit-bg">
     @if ($message=Session::get('info'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         <p>{{$message}}</p>

@@ -10,6 +10,11 @@ use App\Http\Requests\PassRequest;
 
 class UserController extends Controller
 {
+    public function vistahome()
+    {
+        return view('inicio');
+    }
+
     /**
      * Display a listing of the resource.
      *

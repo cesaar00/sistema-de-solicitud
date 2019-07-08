@@ -1,0 +1,18 @@
+body.bg-crit {
+    background-image: url("../img/background1.JPG");
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+
+.crit-color {
+    color: #5d2372;
+}
+
+.crit-nav-color {
+    background-color: #5d2372;
+}
+
+.crit-logo {
+    max-width: 400px;
+}

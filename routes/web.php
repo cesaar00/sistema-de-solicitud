@@ -41,6 +41,8 @@ Route::group(['middleware' => ['role:administrador']], function () {
     Route::get('abono/{abono}/aprobar',
         'AbonoController@aprobar')->
         name('abono.aprobar');
+    
+    
 });
 
 Route::group(['middleware' => ['role:vizor|administrador']], function () {
@@ -62,7 +64,9 @@ Route::group(['middleware' => ['role:vizor|administrador']], function () {
     return view('test');
 }); */
 
+Route::get('/inicio', 'UserController@vistahome')->name('user.inicio');
 Auth::routes();
+
 
 /* Route::get('/home', 'HomeController@index')->name('home');
 Route::delete('/home/{id}', 'HomeController@destroy')->name('home.destroy'); */

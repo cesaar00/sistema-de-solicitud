@@ -20,15 +20,16 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
 </head>
-<body>
+<body class="bg-crit">
     <div id="app">
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm crit-nav-color">
             <div class="container">
 
-                <a class="navbar-brand" href="{{ url('/user') }}">
+                <a class="navbar-brand crit-color" href="{{ url('/home') }}">
                     {{ config('app.name', 'Sistema Control') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -38,8 +39,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                    <li class="nav-item {{request()->is ('tarjeta*') ? 'active' : ''}}">
-                            <a class="nav-link" href="{{route('tarjeta.index')}} ">Proveedor <span class="sr-only">(current)</span></a>
+                        <li class="nav-item {{request()->is ('tarjeta*') ? 'active' : ''}}">
+                            <a class="nav-link" href="{{route('user.index')}} ">Usuarios <span
+                            class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item {{request()->is ('tarjeta*') ? 'active' : ''}}">
+                            <a class="nav-link" href="{{route('tarjeta.index')}} ">Proveedor <span
+                            class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item {{request()->is ('vehiculo*') ? 'active' : ''}}">
                             <a class="nav-link" href="{{route('vehiculo.index')}}">Vehiculo <span class="sr-only">(current)</span></a>

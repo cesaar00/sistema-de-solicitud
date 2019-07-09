@@ -33,7 +33,7 @@ class roles extends Seeder
         ]);
         $admin->assignRole('administrador');
 
-        $admin=User::create([
+       /*  $admin=User::create([
             'name'=> 'Raul',
             'lastname'=> 'Tavera',
             'email'=> 'tavera@gmail.com',
@@ -48,7 +48,7 @@ class roles extends Seeder
             'email'=> 'vizor_prueba@gmail.com',
             'password'=> bcrypt('12345678'),
         ]);
-        $vizor->assignRole('vizor');
+        $vizor->assignRole('vizor'); */
 
     }
 }

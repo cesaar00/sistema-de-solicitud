@@ -74,7 +74,7 @@
             </div>
 
 
-            <div class="form-group col-md-4  font-weight-bold">
+            <div class="form-group col-md-4  font-weight-bold text-right">
                 <label for="agencia">Agencia</label>
                 <input type="text" class="form-control" name="agencia" value=" {{old('agencia')}}"  placeholder="Ingrese una Descripcion">
               </div>

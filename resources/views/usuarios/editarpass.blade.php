@@ -22,7 +22,7 @@
         @csrf
         @method('PUT')
 
-        <h5>Editar contraseña de {{$user->name}} </h5>
+        <h5 class="text-center font-weight-bold">Editar contraseña de {{$user->name}} </h5>
         <div class="row">
 
             <div class="form-group  col-md-4 font-weight-bold">
@@ -36,7 +36,7 @@
 
         </div>
 
-        <div class="form-group text-right">
+        <div class="form-group text-center">
             <button type="submit" class="btn btn-primary">Cambiar contraseña</button>
             <a class="btn btn-secondary" href=" {{route('user.index')}}">Regresar</a>
         </div>

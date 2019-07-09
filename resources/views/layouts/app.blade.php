@@ -192,8 +192,11 @@
         });
     </script>
     <div class="footer-crit text-white">
-            <h5 class="text-center"> FUNDACIÓN TELETÓN MÉXICO A.C</h5>
-            CARRETERA LIBRAMIENTO DE TRÁFICO PESADO N° 1600 COL. FIDEL VELÁZQUEZ CD.ALTAMIRA TAMAULIPAS C.P. 89607
+            Fundación Teletón México A.C.
+                Carretera Libramiento de Tráfico Pesado
+                N° 1600 Col.Fidel Velázquez Altamira
+                Tamaulipas C.P. 89607
+
     </div>
     {{-- <!-- Footer -->
         <footer class="page-footer font-small blue crit-nav-color text-center">

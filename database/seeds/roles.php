@@ -27,8 +27,8 @@ class roles extends Seeder
         $admin=User::create([
             'name'=> 'Admin',
             'lastname'=> 'Host',
-            'email'=> 'admin_prueba@gmail.com',
-            'password' => bcrypt('12345678')
+            'email'=> 'sistemas@teleton.org.mx',
+            'password' => bcrypt('$istemas2019')
 
         ]);
         $admin->assignRole('administrador');

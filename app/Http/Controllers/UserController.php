@@ -26,13 +26,13 @@ class UserController extends Controller
         $users = DB::table('users')
         ->join('model_has_roles', 'model_has_roles.model_id', 'users.id')
         ->join('roles', 'roles.id', 'model_has_roles.role_id')
-        ->select('users.id', 
-                'users.name', 
-                'users.lastname', 
+        ->select('users.id',
+                'users.name',
+                'users.lastname',
                 'users.email',
                 'roles.name as role'
                 )
-        ->where('email', '<>', 'admin_prueba@gmail.com')
+        ->where('email', '<>', 'sistemas@teleton.org.mx')
         ->paginate(3);
        /*  $users = User::orderBy('id', 'DESC')->paginate(3); */
         return view('usuarios/indexusuarios', compact('users'));
@@ -87,7 +87,7 @@ class UserController extends Controller
         //
     }
 
-    
+
 
     /**
      * Show the form for editing the specified resource.
@@ -111,7 +111,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        if($request->password == $request->password1) {    
+        if($request->password == $request->password1) {
             $user->password = bcrypt($request->password);
             $user->save();
             return redirect()->route('user.index')->with('info','La contraseña ha sido cambiada');
@@ -130,7 +130,7 @@ class UserController extends Controller
     {
         $user = auth()->user();
 
-        if($request->password == $request->password1) {    
+        if($request->password == $request->password1) {
             $user->password = bcrypt($request->password);
             $user->save();
             return redirect()->route('user.index')->with('info','La contraseña ha sido cambiada');

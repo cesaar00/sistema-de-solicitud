@@ -22,23 +22,22 @@
         @csrf
         {{-- @method('POST') --}}
 
-        <h5>Editar contraseña de {{$user->name}} </h5>
+        <h5 class="text-center">Editar contraseña de {{$user->name}} </h5>
 
-        <div class="row">
-                <div class="form-group col-md-4 font-weight-bold">
+        <div class="row text-center">
+                <div class="form-group col-md-4 font-weight-bold text-center">
                         <label for="name">Contraseña</label>
                         <input type="password" class="form-control" name="password">
                     </div>
 
-                    <div class="form-group col-md-4 font-weight-bold">
-                        <label for="lastname">Confirmar contraseña</label>
-                        <input type="password" class="form-control" name="password1">
-                </div>
 
+                    <div class="form-group col-md-4 font-weight-bold text-center">
+                            <label for="lastname">Confirmar contraseña</label>
+                            <input type="password" class="form-control" name="password1">
+                        </div>
         </div>
 
-
-        <div class="form-group text-right">
+        <div class="form-group text-center">
             <button type="submit" class="btn btn-primary">Cambiar contraseña</button>
             <a class="btn btn-secondary" href=" {{route('user.index')}}">Regresar</a>
         </div>

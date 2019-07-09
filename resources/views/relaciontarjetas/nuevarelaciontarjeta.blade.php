@@ -21,16 +21,16 @@
     <form method ="POST" action=" {{route('relaciontarjeta.store')}} ">
         @csrf
 
-        <div class="row">
+        <div class="row ">
 
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 font-weight-bold">
                     <label for="monto">Monto</label>
                     <input type="integer" class="form-control" name="monto" value=" {{old('monto')}}"  placeholder="Ingrese el Monto Cargado">
             </div>
 
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 font-weight-bold">
                 <label for="id_tarjeta">Seleccione Proveedor</label>
                 <select class="browser-default custom-select" name="id_tarjeta">
                     @foreach ($tarjetas as $tarjeta)
@@ -40,7 +40,7 @@
             </div>
 
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 font-weight-bold">
                     <label for="tipo_gasolina">Seleccione Tipo Gasolina</label>
                     <select class="browser-default custom-select" name="tipo_gasolina">
                         <option value="Magna">Magna</option>
@@ -50,7 +50,7 @@
             </div>
 
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 font-weight-bold">
                 <label for="id_vehiculo">Seleccione Vehiculo</label>
                 <select class="browser-default custom-select" name="id_vehiculo">
                     @foreach ($vehiculos as $vehiculo)
@@ -60,7 +60,7 @@
             </div>
 
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 font-weight-bold">
                     <label for="id_vehiculo">Fecha de carga</label>
                 <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" name="fecha_carga" />
@@ -71,13 +71,13 @@
             </div>
 
 
-            <div class="form-group col-md-4">
+                <div class="form-group col-md-4 font-weight-bold">
                     <label for="litros">Litros</label>
                     <input type="integer" class="form-control" name="litros" value=" {{old('litros')}}"  placeholder="Ingrese los Litros Cargados">
-                  </div>
-
-
                 </div>
+
+
+         </div>
 
                 <div class="form-group  text-right">
                     <button type="submit" class="btn btn-primary "> Guardar</button>

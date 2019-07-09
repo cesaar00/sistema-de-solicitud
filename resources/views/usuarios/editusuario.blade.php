@@ -17,19 +17,19 @@
         <div class="row">
 
 
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3 font-weight-bold">
                 <label for="name">Nombre</label>
                 <input type="text" class="form-control" name="name" value=" {{$user->name}}">
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3 font-weight-bold">
                 <label for="lastname">Apellido</label>
                 <input type="text" class="form-control" name="lastname" value=" {{$user->lastname}}">
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3 font-weight-bold">
                 <label for="email">Email</label>
                 <input type="text" class="form-control" name="email" value=" {{$user->email}}">
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3 font-weight-bold">
                 <label for="role_id">Seleccione Rol</label>
                 <select class="browser-default custom-select" name="role_id">
                     @foreach ($roles as $rol)

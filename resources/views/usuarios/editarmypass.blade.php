@@ -23,11 +23,11 @@
         {{-- @method('POST') --}}
 
         <h5>Editar contraseña de {{$user->name}} </h5>
-        <div class="form-group">
+        <div class="form-group font-weight-bold">
             <label for="name">Contraseña</label>
             <input type="password" class="form-control" name="password">
         </div>
-        <div class="form-group">
+        <div class="form-group font-weight-bold">
             <label for="lastname">Confirmar contraseña</label>
             <input type="password" class="form-control" name="password1">
         </div>

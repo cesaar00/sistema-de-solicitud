@@ -23,16 +23,16 @@
 
         <div class="row">
 
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3 font-weight-bold">
                     <label for="folio">Folio</label>
                     <input type="integer" class="form-control" name="folio" value=" {{old('folio')}}"  placeholder="Ingrese el folio">
             </div>
 
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3 font-weight-bold">
                 <label for="monto">Monto</label>
                 <input type="integer" class="form-control" name="monto" value=" {{old('monto')}}"  placeholder="Ingrese el Monto">
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3 font-weight-bold">
                     <label for="id_vehiculo">Fecha </label>
                 <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" name="fecha" />
@@ -41,7 +41,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3 font-weight-bold">
                     <label for="id_tarjeta">Seleccione Proveedor</label>
                     <select class="browser-default custom-select" name="id_tarjeta">
                         @foreach ($tarjetas as $tarjeta)

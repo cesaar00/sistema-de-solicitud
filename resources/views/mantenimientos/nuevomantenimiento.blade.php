@@ -20,9 +20,9 @@
     @endif
     <form method ="POST" action=" {{route('mantenimiento.store')}} ">
         @csrf
-        <div class="row">
+        <div class="row ">
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 font-weight-bold">
                     <label for="id_vehiculo">Seleccione Vehiculo</label>
                     <select class="browser-default custom-select" name="id_vehiculo">
                         @foreach ($vehiculos as $vehiculo)
@@ -31,19 +31,19 @@
                     </select>
             </div>
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 font-weight-bold">
               <label for="descripcion">Descripcion</label>
               <input type="text" class="form-control" name="descripcion" value=" {{old('descripcion')}}"  placeholder="Ingrese una Descripcion">
             </div>
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 font-weight-bold">
                 <label for="kilometraje">kilometraje</label>
                 <input type="integer" class="form-control" name="kilometraje"   value=" {{old('kilometraje')}}"  placeholder="Ingrese kilometraje del vehiculo">
             </div>
 
 
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 font-weight-bold">
                     <label for="tipo">Tipo</label>
                     <select class="browser-default custom-select" name="tipo">
                         <option value="0">Enviar  Mantenimiento</option>
@@ -52,7 +52,7 @@
             </div>
 
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 font-weight-bold">
                     <label for="id_vehiculo">Fecha Asignada al Mantenimiento</label>
                 <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" name="fecha" />
@@ -63,7 +63,7 @@
             </div>
 
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 font-weight-bold">
                     <label for="fecha_prox">Fecha del Proximo Mantenimiento</label>
                 <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" name="fecha_prox" />
@@ -74,18 +74,18 @@
             </div>
 
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4  font-weight-bold">
                 <label for="agencia">Agencia</label>
                 <input type="text" class="form-control" name="agencia" value=" {{old('agencia')}}"  placeholder="Ingrese una Descripcion">
               </div>
 
 
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-4 font-weight-bold">
                   <label for="observaciones">Observaciones</label>
                   <input type="text" class="form-control" name="observaciones" value=" {{old('observaciones')}}"  placeholder="Ingrese observaciones">
               </div>
 
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-4 font-weight-bold">
                   <label for="costo">Costo</label>
                   <input type="integer" class="form-control" name="costo" value=" {{old('costo')}}"  placeholder="Ingrese el costo">
               </div>

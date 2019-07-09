@@ -112,6 +112,7 @@
                     </ul>
                 </div>
             </div>
+
         </nav>
 
         <main class="py-4">
@@ -190,6 +191,24 @@
             });
         });
     </script>
+    <div class="footer-crit text-white">
+            <h5 class="text-center"> FUNDACIÓN TELETÓN MÉXICO A.C</h5>
+            CARRETERA LIBRAMIENTO DE TRÁFICO PESADO N° 1600 COL. FIDEL VELÁZQUEZ CD.ALTAMIRA TAMAULIPAS C.P. 89607
+    </div>
+    {{-- <!-- Footer -->
+        <footer class="page-footer font-small blue crit-nav-color text-center">
+            <nav class="navbar navbar-expand-md navbar-dark shadow-sm text-center">
 
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-3">
+                   <h5 class="text-center"> FUNDACIÓN TELETÓN MÉXICO A.C</h5>
+                    CARRETERA LIBRAMIENTO DE TRÁFICO PESADO N° 1600 COL. FIDEL VELÁZQUEZ CD.ALTAMIRA TAMAULIPAS C.P. 89607
+                </div>
+                <!-- Copyright -->
+
+            </nav>
+
+      </footer>
+      <!-- Footer --> --}}
 </body>
 </html>

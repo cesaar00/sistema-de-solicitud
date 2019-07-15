@@ -54,12 +54,9 @@ class AbonoController extends Controller
     {
 
         $fecha = Date::createFromFormat('d/m/Y', $request->fecha);
-        $fechaactual= Date::today();
-        return $fechaactual;
-        if ($fecha > $fechaactual) {
-            return redirect()->route('abono.create')->with('error','La fecha no puede ser mayor a la fecha del dia actual');
+        $fechaactual= Date::today()->addDays(1);
 
-        }else {
+        if ($fecha->lte($fechaactual)) {
             abono::create([
                 'folio'=> $request->folio,
                 'monto'=> $request->monto,
@@ -68,6 +65,10 @@ class AbonoController extends Controller
                 'estado' => 0
             ]);
             return redirect('/abono');
+
+
+        }else {
+            return redirect()->route('abono.create')->with('error','La fecha no puede ser mayor a la fecha del dia actual');
 
         }
 
